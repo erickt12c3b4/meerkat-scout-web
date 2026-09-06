@@ -1,0 +1,328 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens (design_handoff_meerkat_scout_site/README.md)         */
+/* Values are verbatim from the handoff. Names are ours.               */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Fonts: self-hosted Geist / Geist Mono declared in app/fonts.css */
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* Breakpoints: 480 phone · 768 tablet · 1024 small laptop · 1280 desktop */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Paper / ink */
+  --color-paper: #f7f4ef;
+  --color-paper-light: #faf8f4;
+  --color-paper-warm: #faf9f8;
+  --color-ink: #171514;
+  --color-body: #52525b;
+  --color-nav: #3f3f46;
+  --color-dim: #6b655e;
+  --color-faint: #8a857f;
+  --color-placeholder: #a9a7a2;
+
+  /* Borders and tints */
+  --color-line: #ede9e4;
+  --color-line-strong: #e7e1d9;
+  --color-line-input: #ddd6cc;
+  --color-line-button: #d9d2c8;
+  --color-tint: #f1ece5;
+
+  /* Rust */
+  --color-rust: #a0431a;
+  --color-rust-button: #c2571e;
+  --color-rust-bright: #e2703a;
+  --color-amber: #e5813a;
+  --color-rust-tint: #fff3ec;
+  --color-badge: #fff6e8;
+  --color-tint-line: #f3d9c8;
+  --color-tint-line-strong: #f3c7ae;
+
+  /* Dark sections */
+  --color-night: #0a0a0a;
+  --color-night-deep: #0b0a09;
+  --color-night-card: #141312;
+  --color-night-line: #2e2a26;
+  --color-night-line-2: #26231f;
+  --color-night-line-3: #1f1d1b;
+  --color-night-line-4: #3a3430;
+  --color-night-line-5: #46423e;
+  --color-night-text: #d2ccc5;
+  --color-night-muted: #b7b0a8;
+  --color-night-muted-2: #a8a29a;
+  --color-footer-top: #121110;
+  --color-footer-bottom: #0c0c0c;
+  --color-footer-edge: #4a4540;
+  --color-footer-rule: #332e2a;
+  --color-footer-dot: #5c5650;
+  --color-curve: #6a2f18;
+
+  /* Status */
+  --color-ok: #2e9e5b;
+  --color-ok-bright: #5dbb7a;
+  --color-ok-text: #1f7a4c;
+  --color-ok-tint: #eaf5ee;
+  --color-check: #4e7a57;
+  --color-warn: #e5a33a;
+  --color-danger: #b42318;
+  --color-danger-tint: #fdecea;
+  --color-success: #2f6b3a;
+  --color-success-tint: #e8f3ea;
+
+  /* Radii */
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+
+  /* Shadows */
+  --shadow-hairline: 0 1px 2px rgba(24, 24, 27, 0.1);
+  --shadow-card: 0 10px 28px rgba(24, 24, 27, 0.06);
+  --shadow-raised: 0 14px 34px rgba(24, 24, 27, 0.08);
+  --shadow-raised-soft: 0 14px 34px rgba(24, 24, 27, 0.06);
+  --shadow-hero: 0 18px 44px rgba(24, 24, 27, 0.12);
+  --shadow-hero-soft: 0 18px 44px rgba(24, 24, 27, 0.08);
+  --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.45);
+
+  /* Glow used at the top-right of dark sections */
+  --background-image-glow: radial-gradient(
+    closest-side,
+    rgba(160, 67, 26, 0.12),
+    transparent 70%
+  );
+
+  --animate-ms-flow: msFlow 1.6s linear infinite;
+  @keyframes msFlow {
+    to {
+      stroke-dashoffset: -9;
+    }
+  }
+}
+
+/* shadcn variables, set to the palette */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+}
+
+:root {
+  --background: #f7f4ef;
+  --foreground: #171514;
+  --card: #ffffff;
+  --card-foreground: #171514;
+  --popover: #ffffff;
+  --popover-foreground: #171514;
+  --primary: #c2571e;
+  --primary-foreground: #ffffff;
+  --secondary: #fff3ec;
+  --secondary-foreground: #a0431a;
+  --muted: #f1ece5;
+  --muted-foreground: #52525b;
+  --accent: #fff3ec;
+  --accent-foreground: #a0431a;
+  --destructive: #b42318;
+  --border: #ede9e4;
+  --input: #ddd6cc;
+  --ring: #c2571e;
+  --radius: 0.5rem;
+}
+
+/* Page gutter: 70px at the 1440 design width (content column 1300px). Above 1440 the column stays
+   centered while section backgrounds run full-bleed; 40px under 1024; 20px under 480. */
+:root {
+  --gutter: 70px;
+}
+@media (min-width: 1440px) {
+  :root {
+    --gutter: max(70px, calc((100vw - 1300px) / 2));
+  }
+}
+@media (max-width: 1023.98px) {
+  :root {
+    --gutter: 40px;
+  }
+}
+@media (max-width: 479.98px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+@utility font-home {
+  font-family: "Geist Home", "Geist", system-ui, sans-serif;
+}
+@utility px-gutter {
+  padding-inline: var(--gutter);
+}
+@utility mx-gutter {
+  margin-inline: var(--gutter);
+}
+@utility pl-gutter {
+  padding-left: var(--gutter);
+}
+@utility pr-gutter {
+  padding-right: var(--gutter);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    /* The design files rely on the browser default line-height (no reset); preflight's 1.5 would
+       add 2–4px per unstyled line. Explicit leading-* utilities still apply where the design set one. */
+    line-height: normal;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  a {
+    color: var(--color-rust);
+    text-decoration: none;
+    transition: filter 0.15s ease;
+  }
+  a:hover,
+  button:hover {
+    filter: brightness(0.94);
+  }
+  button {
+    transition: filter 0.15s ease;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-placeholder);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-rust-button);
+    outline-offset: 2px;
+  }
+  /* Anchored blocks clear the 80px sticky header */
+  [id] {
+    scroll-margin-top: 100px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Data tables (grid rows) become stacked label/value cards under 768px (not designed; MOBILE-NOTES.md).
+   The container carries the column labels as --c1..--c7 custom properties; cells without a label
+   render no caption. Status dots and the highlighted-row treatment are untouched. */
+@layer components {
+  @media (max-width: 767.98px) {
+    /* header rows carry `max-md:hidden` (a utility, so it beats their `grid` utility) */
+    .stack-table .stack-row {
+      margin: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--stack-border, var(--color-night-line));
+    }
+    .stack-table .stack-row > * {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+    }
+    .stack-table .stack-row > *::before {
+      content: var(--c);
+      flex: none;
+      font: 700 11px / 1 var(--font-sans);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-faint);
+    }
+    .stack-table .stack-row > :first-child {
+      justify-content: flex-start;
+    }
+    .stack-table .stack-row > :nth-child(1) { --c: var(--c1); }
+    .stack-table .stack-row > :nth-child(2) { --c: var(--c2); }
+    .stack-table .stack-row > :nth-child(3) { --c: var(--c3); }
+    .stack-table .stack-row > :nth-child(4) { --c: var(--c4); }
+    .stack-table .stack-row > :nth-child(5) { --c: var(--c5); }
+    .stack-table .stack-row > :nth-child(6) { --c: var(--c6); }
+    .stack-table .stack-row > :nth-child(7) { --c: var(--c7); }
+    /* cells to drop on cards (row chevrons) carry `max-md:hidden` as well */
+  }
+}
+
+/* Dashed "flow" strokes on the Walmart / eBay diagrams (design: msFlow) */
+.ms-flow {
+  animation: msFlow 1.6s linear infinite;
+}
+
+/* Homepage-only motion (ported verbatim from the approved homepage) */
+.ms-pulse {
+  animation: msPulse 3s linear infinite;
+}
+@keyframes msPulse {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+.ms-arrive {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: msArrive 3s linear infinite;
+}
+@keyframes msArrive {
+  0%,
+  84% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  92% {
+    opacity: 1;
+    transform: scale(1.45);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+/* reCAPTCHA v2 invisible badge is hidden (attribution text is shown instead) */
+.grecaptcha-badge {
+  visibility: hidden;
+}
