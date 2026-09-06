@@ -1,0 +1,13 @@
+{
+  "name": "design-converter",
+  "private": true,
+  "type": "module",
+  "description": "One-off tooling used to port design_handoff_meerkat_scout_site/ to the app and to measure fidelity. Not part of the build.",
+  "dependencies": {
+    "lucide": "^1.0.0",
+    "parse5": "^7.0.0",
+    "pixelmatch": "^7.0.0",
+    "pngjs": "^7.0.0",
+    "prettier": "^3.0.0"
+  }
+}
