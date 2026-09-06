@@ -283,9 +283,7 @@ export default function DiagnosticsPage() {
               </div>
               <div className="pt-[10px] pb-[4px] px-0 text-[13px] text-faint">
                 210 more products ·{" "}
-                <a className="font-semibold" href="#">
-                  Show all
-                </a>
+                <span className="font-semibold text-rust">Show all</span>
               </div>
             </div>
           </div>

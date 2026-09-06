@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Scaled } from "@/components/site/scaled";
 import { ArrowRight, Check, ChevronDown, Rss } from "lucide-react";
 import {
@@ -1900,7 +1901,7 @@ export default function HomePage() {
               </div>
               <a
                 className="hover:text-[#e2703a] inline-flex items-center gap-[10px] mt-[30px] text-[17px] font-semibold text-rust-button"
-                href="#opportunity-queue"
+                href="#conversion-intelligence"
               >
                 Explore conversion intelligence
                 <ArrowRight size={18} strokeWidth={1.6} className="flex-none" />
@@ -2996,13 +2997,13 @@ export default function HomePage() {
               Connect Shopify to every major destination, monitor the health of every integration, and keep control of
               every catalog change.
             </p>
-            <a
+            <Link
               className="hover:text-[#a0431a] inline-flex items-center gap-[10px] mt-[22px] text-[17px] font-semibold text-rust-button"
-              href="#channel-directory"
+              href="/channels"
             >
               Explore channels
               <ArrowRight size={18} strokeWidth={1.7} aria-hidden="true" className="flex-none" />
-            </a>
+            </Link>
             <div className="mt-[30px] p-[22px] pb-[20px] bg-[#FBF9F6] border border-[#E6E1D9] rounded-14 shadow-[0_24px_60px_rgba(30,24,16,.09),0_2px_6px_rgba(30,24,16,.04)]">
               <div className="flex items-start justify-between gap-[18px]">
                 <div>
@@ -3410,12 +3411,12 @@ export default function HomePage() {
                 </p>
                 <div className="w-full h-px m-0 mt-[20px] bg-[#E9E3DA]"></div>
                 <p className="m-0 mt-[16px] text-center text-[14px] text-faint">Scale-level SKU allowance</p>
-                <a
+                <Link
                   className="hover:border-[#171514] active:bg-[#f2eee8] flex items-center justify-center w-full min-h-[48px] mt-[18px] px-[18px] py-0 rounded-8 text-[16px] font-semibold border border-[#C8C1B6] bg-white text-ink"
-                  href="#talk-to-sales"
+                  href="/contact"
                 >
                   Talk to sales
-                </a>
+                </Link>
               </div>
             </div>
             <div className="flex items-center justify-center gap-0 mt-[34px]">
@@ -3436,13 +3437,13 @@ export default function HomePage() {
                 <span className="text-[16px] text-night-line">Metered by SKU count</span>
               </span>
             </div>
-            <a
+            <Link
               className="hover:text-[#a0431a] inline-flex items-center gap-[9px] mt-[26px] mb-[66px] mx-0 text-[16px] font-semibold text-rust-button"
-              href="#plan-comparison"
+              href="/pricing"
             >
               Compare plan details
               <ArrowRight size={17} strokeWidth={1.7} aria-hidden="true" className="flex-none" />
-            </a>
+            </Link>
           </div>
 
         </div>
