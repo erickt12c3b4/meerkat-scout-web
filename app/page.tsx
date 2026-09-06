@@ -791,13 +791,13 @@ export default function HomePage() {
                 Create a correction rule without touching Shopify
               </span>
             </div>
-            <a
+            <Link
               className="hover:text-[#f08a4b] inline-flex items-center gap-[10px] mt-[34px] text-[17px] font-semibold text-rust-bright"
-              href="#diagnostics"
+              href="/platform/diagnostics"
             >
               Explore diagnostics
               <ArrowRight size={18} strokeWidth={1.6} className="flex-none" />
-            </a>
+            </Link>
           </div>
           <div className="absolute left-[560px] top-[80px] w-[930px] h-[836px] z-[2] [transform:scale(.878)] origin-[0_0]">
             <div className="w-full h-full flex flex-col bg-[#131211] border border-[#2B2724] rounded-[20px] p-[13px] shadow-[0_60px_120px_rgba(0,0,0,.65),0_0_0_1px_rgba(255,255,255,.03)]">
@@ -1416,13 +1416,13 @@ export default function HomePage() {
                 <span className="text-[16px] text-night-line leading-[1.4]">Measure what changed after you acted</span>
               </div>
             </div>
-            <a
+            <Link
               className="hover:text-[#c2571e] inline-flex items-center gap-[10px] mt-[32px] text-[17px] font-semibold text-rust"
-              href="#price-intelligence"
+              href="/platform/price-intelligence"
             >
               Explore price intelligence
               <ArrowRight size={18} strokeWidth={1.6} className="flex-none" />
-            </a>
+            </Link>
           </div>
           <div className="absolute left-[58px] top-[84px] w-[822px] z-[2] [transform:perspective(2800px)_rotateY(2.6deg)] origin-[100%_50%]">
             <div className="flex bg-white border border-[#E6E1D9] rounded-14 overflow-hidden shadow-[0_40px_90px_rgba(30,24,16,.13),0_4px_14px_rgba(30,24,16,.05)]">
@@ -1899,13 +1899,13 @@ export default function HomePage() {
                   <span className="text-[16px] text-[#EDEAE6]">Exclude unmatched data instead of guessing</span>
                 </span>
               </div>
-              <a
+              <Link
                 className="hover:text-[#e2703a] inline-flex items-center gap-[10px] mt-[30px] text-[17px] font-semibold text-rust-button"
-                href="#conversion-intelligence"
+                href="/platform/conversion-intelligence"
               >
                 Explore conversion intelligence
                 <ArrowRight size={18} strokeWidth={1.6} className="flex-none" />
-              </a>
+              </Link>
               <span className="flex items-center gap-[14px] mt-[34px] px-0 py-[22px] border-t border-t-[#262422] border-b border-b-[#262422]">
                 <ShieldGlyph2 size={22} stroke="#C2571E" className="flex-none" />
                 <span className="text-[16.5px] text-[#EDEAE6]">Every number links back to its source.</span>

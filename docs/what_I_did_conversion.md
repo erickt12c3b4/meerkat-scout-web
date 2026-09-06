@@ -81,9 +81,10 @@ homepage, and confirm every href resolves or is one of the two intentional stubs
   - The three homepage anchors that now go to routes are `next/link` `Link`s (eslint
     `no-html-link-for-pages`); the rendered markup is the same `<a>`.
 - **Numbers:** `next build` clean, `eslint` 0 problems, `tsc --noEmit` 0 errors.
-- **Judgment call to review:** all three homepage "Explore …" links anchor to the section they live
-  in (design behaviour). If they should go to the platform pages instead, that is three hrefs in
-  `app/page.tsx`.
+- **Follow-up (same day, founder decision):** the three homepage "Explore …" links now go to
+  `/platform/diagnostics`, `/platform/price-intelligence` and `/platform/conversion-intelligence`
+  instead of self-anchoring to their homepage sections. Re-ran the audit: 26 routes, 100 unique
+  hrefs, 0 failures.
 
 ## How the port was done (so you can judge the output)
 
