@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GDPR &amp; Data Rights — Meerkat Scout</title>
+<meta name="description" content="Your data rights under GDPR — access, correction, deletion and export — and how Scout handles Shopify's mandatory privacy webhooks.">
+<link rel="canonical" href="https://meerkatscout.com/legal/gdpr/">
+<meta name="theme-color" content="#F7F4EF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meerkat Scout">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://meerkatscout.com/legal/gdpr/">
+<meta property="og:title" content="Your rights, our role, and exactly what happens when you leave.">
+<meta property="og:description" content="Your data rights under GDPR — access, correction, deletion and export — and how Scout handles Shopify's mandatory privacy webhooks.">
+<meta property="og:image" content="https://meerkatscout.com/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meerkat Scout — Make every product ready for every channel.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your rights, our role, and exactly what happens when you leave.">
+<meta name="twitter:description" content="Your data rights under GDPR — access, correction, deletion and export — and how Scout handles Shopify's mandatory privacy webhooks.">
+<meta name="twitter:image" content="https://meerkatscout.com/assets/og/home.jpg">
+<link rel="icon" href="../../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="preload" href="../../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<style>body{margin:0;min-width:1440px;background:#F7F4EF;color:#171514;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#A0431A;text-decoration:none;transition:filter .15s ease}a:hover{filter:brightness(.94)}html{scroll-behavior:smooth}</style>
+<style>button{font:inherit;cursor:pointer;transition:filter .15s ease}button:hover{filter:brightness(.94)}:focus-visible{outline:2px solid #C2571E;outline-offset:2px}</style>
+<style id="ms-responsive">
+/* Sub-page responsive layer — inlined by build/build-pages.js, which sets the hooks:
+   [data-x=…] chrome (header/menu/footer/CTA), [data-g=…] grids classified by track shape, [data-fit=W] fixed-width
+   mockups that zoom to fit (rwd.js), [data-x=mascot] absolutely-positioned mascots. Inline styles need !important.
+   Ranges: ≥1440 design as-is · 1152–1439 whole page zooms (--z) · 768–1151 tablet reflow · ≤767 phone. */
+:root{--z:1}
+[data-x=burger],[data-x=menu]{display:none}
+@media (min-width:1152px) and (max-width:1439px){body{min-width:0!important;zoom:var(--z)}}
+@media (max-width:1439px){:root{--z:.96}}
+@media (max-width:1366px){:root{--z:.92}}
+@media (max-width:1300px){:root{--z:.88}}
+@media (max-width:1240px){:root{--z:.84}}
+@media (max-width:1200px){:root{--z:.8}}
+@media (min-width:1152px){[data-x=menu]{display:none!important}}
+
+@media (max-width:1151px){
+  html,body{overflow-x:clip}
+  body{min-width:0!important}
+  [data-x=sec],[data-x=band]{padding-left:40px!important;padding-right:40px!important}
+  [data-x=rule]{margin-left:40px!important;margin-right:40px!important}
+  [data-x=hdr]{grid-template-columns:auto 1fr auto!important;padding:0 24px!important}
+  [data-x=nav],[data-x=signin]{display:none!important}
+  [data-x=burger]{display:inline-flex!important}
+  [data-x=hdr-right]{gap:12px!important}
+  [data-x=menu][data-open]{display:flex}
+  [data-g="2L"],[data-g="3L"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="3L"][data-gc]>:nth-child(2){display:none!important}
+  [data-g="2L"]>*{min-height:0!important}
+  [data-g="4"],[data-g=conn]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [data-g=conn]>:nth-child(even){display:none!important}
+  [data-g="3"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  [data-x=mascot]{display:none!important}
+  [data-fit]{zoom:.75;margin-left:auto!important;margin-right:auto!important}
+  [data-x=cta]{padding:0 40px!important;min-height:0!important;background-position:right bottom!important;background-size:auto 400px!important}
+  [data-x=cta-text]{width:100%!important;min-width:0;max-width:560px;padding:64px 0 56px!important}
+  [data-x=cta-btns]{flex-wrap:wrap}
+  [data-x=foot-grid]{grid-template-columns:repeat(4,1fr)!important;padding:44px 40px 0!important}
+  [data-x=foot-brand]{grid-column:1/-1}
+  [data-x=foot-rule]{margin:36px 40px 0!important}
+  [data-x=foot-bar]{padding:20px 40px 28px!important;flex-wrap:wrap;gap:10px}
+  [data-x=foot-compact]{padding-left:40px!important;padding-right:40px!important}
+  h1{font-size:46px!important}
+  [data-x=h2]{font-size:38px!important}
+}
+@media (max-width:1023px){
+  [data-g="2M"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="2M"]>*{min-height:0!important}
+}
+@media (max-width:899px){
+  [data-g="3"]{grid-template-columns:minmax(0,1fr)!important}
+  [data-g="3"][data-gc]>:nth-child(2){display:none!important}
+  [data-x=cta]{background-size:auto 280px!important;background-position:right -60px bottom!important}
+  [data-x=cta-text]{max-width:none;padding:56px 0 250px!important}
+}
+@media (max-width:767px){
+  [data-fit]{zoom:.42}
+  [data-x=sec],[data-x=band]{padding-left:20px!important;padding-right:20px!important}
+  [data-x=rule]{margin-left:20px!important;margin-right:20px!important}
+  [data-x=hdr]{height:64px!important;padding:0 16px!important}
+  [data-x=hdr] img{height:32px!important}
+  [data-x=hdr-right] a{padding:9px 14px!important}
+  [data-g]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important}
+  [data-g=ico3]{grid-template-columns:auto minmax(0,1fr)!important}
+  [data-x=thead]{display:none!important}
+  [data-g=ico3]>:nth-child(3){grid-column:2}
+  [data-x=cta]{padding:0 20px!important}
+  [data-x=cta] h2{font-size:34px!important}
+  [data-x=cta-btns]>a{width:100%}
+  [data-x=btnrow]{flex-wrap:wrap}
+  [data-x=facts]{flex-wrap:wrap;row-gap:12px}
+  [data-x=facts]>*{flex:1 1 140px;min-width:0}
+  form{padding-left:20px!important;padding-right:20px!important}
+  [data-x=foot-grid]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding:40px 20px 0!important}
+  [data-x=foot-rule]{margin:32px 20px 0!important}
+  [data-x=foot-bar]{padding:18px 20px 28px!important}
+  [data-x=foot-compact]{padding-left:20px!important;padding-right:20px!important;flex-wrap:wrap}
+  h1{font-size:34px!important;line-height:1.08!important}
+  [data-x=h2]{font-size:30px!important}
+  [data-x=lede]{font-size:16.5px!important}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://meerkatscout.com/legal/gdpr/#webpage","url":"https://meerkatscout.com/legal/gdpr/","name":"GDPR & Data Rights — Meerkat Scout","description":"Your data rights under GDPR — access, correction, deletion and export — and how Scout handles Shopify's mandatory privacy webhooks.","isPartOf":{"@id":"https://meerkatscout.com/#website"},"about":{"@id":"https://meerkatscout.com/#org"},"primaryImageOfPage":"https://meerkatscout.com/assets/og/home.jpg","breadcrumb":{"@id":"https://meerkatscout.com/legal/gdpr/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://meerkatscout.com/legal/gdpr/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://meerkatscout.com/"},{"@type":"ListItem","position":2,"name":"GDPR & Data Rights","item":"https://meerkatscout.com/legal/gdpr/"}]}]}</script>
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:40;height:80px;background:rgba(250,249,247,.82);backdrop-filter:saturate(1.25) blur(12px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 22px;box-sizing:border-box" data-x="hdr"><a href="../../" aria-label="Meerkat Scout home" style="display:flex;align-items:center;gap:10px"><img src="../../assets/img-03.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;height:42px;width:auto"></a><nav style="display:flex;align-items:center;gap:34px;font-size:14.5px;font-weight:500;color:#3F3F46" data-x="nav"><a href="../../#platform" style="color:#3F3F46">Platform</a><a href="../../channels/" style="color:#3F3F46">Channels</a><a href="../../help/" style="color:#3F3F46">Resources</a><a href="../../pricing/" style="color:#3F3F46">Pricing</a></nav><div style="display:flex;align-items:center;justify-content:flex-end;gap:20px" data-x="hdr-right"><a href="#signin" style="font-size:14.5px;font-weight:500;color:#3F3F46" data-x="signin">Sign in</a><a href="../../demo/" style="font-size:14.5px;font-weight:600;color:#fff;background:#C2571E;border-radius:6px;padding:11px 20px;box-shadow:0 1px 2px rgba(24,24,27,.10)">Book a demo</a><button data-x="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ms-menu" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #E6E1D9;border-radius:8px;background:#fff;color:#171514;cursor:pointer;flex:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div><nav id="ms-menu" data-x="menu" aria-label="Menu" hidden="" style="position:absolute;left:0;right:0;top:100%;z-index:50;flex-direction:column;padding:6px 24px 18px;background:#FAF9F7;border-bottom:1px solid #E6E1D9;box-shadow:0 18px 40px rgba(24,24,27,.08)"><a href="../../#platform" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Platform</a><a href="../../channels/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Channels</a><a href="../../help/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Resources</a><a href="../../pricing/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Pricing</a><a href="#signin" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:500;color:#52525B">Sign in</a></nav></header>
+
+<section style="background:#F7F4EF;padding:76px 70px 60px;border-bottom:1px solid #E7E1D9" data-x="sec">
+  <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">Legal · GDPR &amp; data rights</p>
+  <h1 style="margin:0;font-size:57px;line-height:1.08;font-weight:800;letter-spacing:-.035em;max-width:760px;text-wrap:pretty">Your rights, our role, and exactly what happens when you leave.</h1>
+  <p style="margin:28px 0 0;font-size:17.5px;line-height:1.55;color:#52525B;max-width:640px;text-wrap:pretty">This page states plainly where Scout is a controller and where it is a processor, lists the rights you can exercise, and walks through the uninstall-to-deletion timeline step by step.</p>
+  <div style="display:flex;gap:36px;margin-top:36px;font-size:14px;color:#6B655E" data-x="facts">
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Effective</span><span style="color:#171514;font-weight:500">September 2, 2026</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Privacy contact</span><span style="color:#171514;font-weight:500">privacy@meerkatscout.com</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Read with</span><span style="color:#171514;font-weight:500"><a href="../../legal/privacy/">Privacy Policy</a></span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:52px" data-g="4">
+    <div style="display:flex;flex-direction:column;gap:12px;padding:26px 26px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;box-shadow:0 10px 28px rgba(24,24,27,.06)">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">Scout is the controller</span>
+      <span style="font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Your merchant account data</span>
+      <span style="font-size:15.5px;line-height:1.55;color:#52525B">Shop domain, the name and email on your Shopify account, plan and billing history, support correspondence. We decide why and how this is processed, so we answer for it.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;padding:26px 26px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;box-shadow:0 10px 28px rgba(24,24,27,.06)">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">You are the controller · Scout is the processor</span>
+      <span style="font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Your catalog and order data</span>
+      <span style="font-size:15.5px;line-height:1.55;color:#52525B">Products, variants, feeds, diagnostics, and any order data you choose to share. It flows through Scout on your instructions and for your purposes. You decide; we process.</span>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F7F4EF;padding:64px 70px 40px;display:grid;grid-template-columns:260px minmax(0,780px);gap:96px;align-items:start" data-x="sec" data-g="4">
+  <nav aria-label="On this page" style="position:sticky;top:104px;display:flex;flex-direction:column;gap:2px">
+    <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A857F">On this page</p>
+    <a href="#roles" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">1 &nbsp;Controller or processor</a>
+    <a href="#shoppers" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">2 &nbsp;Your shoppers</a>
+    <a href="#rights" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">3 &nbsp;Your rights</a>
+    <a href="#requests" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">4 &nbsp;Making a request</a>
+    <a href="#webhooks" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">5 &nbsp;Shopify privacy webhooks</a>
+    <a href="#uninstall" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">6 &nbsp;Uninstall and deletion timeline</a>
+    <a href="#legal-basis" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">7 &nbsp;Legal basis</a>
+    <a href="#transfers" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">8 &nbsp;Where data is held</a>
+    <a href="#subprocessors" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">9 &nbsp;Sub-processors</a>
+    <a href="#dpa" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">10 &nbsp;Data processing agreement</a>
+    <a href="#complaints" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9;border-bottom:1px solid #E7E1D9">11 &nbsp;Complaints and contact</a>
+    <div style="margin-top:28px;display:flex;flex-direction:column;gap:8px">
+      <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A857F">Related</p>
+      <a href="../../legal/privacy/" style="font-size:14.5px;color:#A0431A">Privacy Policy →</a>
+      <a href="../../legal/terms/" style="font-size:14.5px;color:#A0431A">Terms of Service →</a>
+      <a href="../../legal/cookies/" style="font-size:14.5px;color:#A0431A">Cookie Preferences →</a>
+    </div>
+  </nav>
+
+  <article style="display:flex;flex-direction:column">
+
+    <section id="roles" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">01 · Roles</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Controller or processor</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">GDPR asks one question first: who decides why and how personal data is used? That party is the <strong style="color:#171514;font-weight:600">controller</strong>. A party that handles data on the controller's instructions is a <strong style="color:#171514;font-weight:600">processor</strong>. Scout is each of these for different data, and the distinction is not blurred here because your rights and our duties depend on it.</p>
+      <div style="background:#fff;border:1px solid #EDE9E4;border-radius:10px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 22px;background:#FAF9F8;border-bottom:1px solid #EDE9E4;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F" data-g="4"><span>Merchant account data — Scout is controller</span><span>Catalog and order data — you are controller, Scout is processor</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><span><strong style="color:#171514;font-weight:600">What it is.</strong> Your shop domain; the name and email address on your Shopify account; your plan, charge history and support correspondence.</span><span><strong style="color:#171514;font-weight:600">What it is.</strong> Products and variants, store metadata, generated feeds, channel diagnostics, channel credentials, and — only if you enable it — order data with personal fields already stripped.</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><span><strong style="color:#171514;font-weight:600">Why we hold it.</strong> To run your account, bill you through Shopify, support you, and meet our own legal obligations. We set those purposes.</span><span><strong style="color:#171514;font-weight:600">Why we hold it.</strong> Because you installed Scout and configured it to sync, transform and publish your catalog. You set the purpose; we carry out your instructions.</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:18px 22px;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><span><strong style="color:#171514;font-weight:600">What that means for you.</strong> Exercise your rights directly with us (section 3). We answer for how it is used.</span><span><strong style="color:#171514;font-weight:600">What that means for you.</strong> We process it only on your instructions, keep it isolated to your store, delete it when you leave, and help you meet your own GDPR obligations — including through the Shopify webhooks in section 5.</span></div>
+      </div>
+      <p style="margin:22px 0 0;font-size:16.5px;line-height:1.65;color:#3F3F46">Where Scout uses third-party services to carry out your instructions — the channels you connect, taxonomy APIs, a search API, an AI model provider, and our hosting — those services act as our sub-processors for that data (section 9).</p>
+    </section>
+
+    <section id="shoppers" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">02 · Shoppers</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Your shoppers</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">Scout does not collect personal data about your customers. We store no customer names, email addresses, postal addresses, phone numbers, or IP addresses. When order data is ingested for Conversion Intelligence, those fields are removed before the record is stored, and an automated schema test fails our build if any personal field is ever introduced.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">If one of your shoppers exercises a right with you, Scout will have nothing about that person to return or erase — and we confirm that automatically through the Shopify webhooks below.</p>
+    </section>
+
+    <section id="rights" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">03 · Rights</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Your rights</h2>
+      <p style="margin:0 0 20px;font-size:16.5px;line-height:1.65;color:#3F3F46">For your merchant account data, and for the catalog data we hold on your behalf, every merchant can:</p>
+      <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px" data-g="4">
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Access and export</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Receive a copy of the data Scout holds for your store, in a machine-readable format.</span></li>
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Erasure</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Have all operational data for your store deleted — on request, or automatically when you uninstall.</span></li>
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Rectification</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Catalog data is mirrored from Shopify: correct it there and Scout follows. Account details we hold directly, we will correct on request.</span></li>
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Restriction and objection</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Ask us to pause processing of your account data, or object to a particular use, while a question is resolved.</span></li>
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Withdraw optional access</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Revoke the optional order permission in your Shopify admin at any time; the rest of Scout keeps working.</span></li>
+        <li style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><strong style="font-size:16px;color:#171514;font-weight:600">Complain</strong><span style="font-size:15px;line-height:1.55;color:#52525B">Raise a concern with us first, or with your supervisory authority at any time (section 11).</span></li>
+      </ul>
+    </section>
+
+    <section id="requests" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">04 · Requests</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Making a request</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">Email privacy@meerkatscout.com from the email address on your Shopify account and include your shop domain. We will confirm receipt and respond within one month, as GDPR requires; if a request is unusually complex we may extend that by up to two further months and will tell you why.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">We verify that a request comes from the store owner or an authorized staff account before acting on it. Requests are free unless they are manifestly unfounded or repetitive.</p>
+    </section>
+
+    <section id="webhooks" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">05 · Webhooks</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Shopify privacy webhooks</h2>
+      <p style="margin:0 0 22px;font-size:16.5px;line-height:1.65;color:#3F3F46">Shopify requires every app to implement three privacy webhooks. Scout implements all three and handles each automatically.</p>
+      <div style="background:#fff;border:1px solid #EDE9E4;border-radius:10px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:12px 22px;background:#FAF9F8;border-bottom:1px solid #EDE9E4;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F" data-g="4"><span>Webhook</span><span>What Scout does</span></div>
+        <div style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514">customers/data_request</code><span>A shopper has asked you for their data. Scout searches its records for the customer and returns a confirmation that no personal data is held — because none is stored.</span></div>
+        <div style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514">customers/redact</code><span>A shopper has asked you to erase their data. Scout checks for any record tied to that customer and deletes it if found; in normal operation there is nothing to delete.</span></div>
+        <div style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:18px 22px;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514">shop/redact</code><span>Sent by Shopify about 48 hours after you uninstall. Scout deletes every operational record for the store: catalog mirror, feeds, history, diagnostics, credentials, and any order data. Financial records are kept as described in section 6.</span></div>
+      </div>
+    </section>
+
+    <section id="uninstall" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">06 · Leaving</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Uninstall and deletion timeline</h2>
+      <ol style="margin:0 0 22px;padding:0;list-style:none;display:flex;flex-direction:column;gap:0">
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:18px 0;border-top:1px solid #E7E1D9" data-g="4"><span style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#A0431A;padding-top:3px">01</span><span style="font-size:16.5px;line-height:1.6;color:#3F3F46"><strong style="color:#171514;font-weight:600">You uninstall Scout</strong> from your Shopify admin. Your subscription ends through Shopify Billing. Scout's access tokens for your store are revoked by Shopify immediately, so Scout can no longer read your catalog or publish feeds.</span></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:18px 0;border-top:1px solid #E7E1D9" data-g="4"><span style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#A0431A;padding-top:3px">02</span><span style="font-size:16.5px;line-height:1.6;color:#3F3F46"><strong style="color:#171514;font-weight:600">A brief holding period.</strong> Scout retains the store record because Shopify sends the formal erasure request (<code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514">shop/redact</code>) approximately 48 hours after uninstall. Nothing is processed or published during this period. If you reinstall within it, your configuration is still there.</span></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:18px 0;border-top:1px solid #E7E1D9" data-g="4"><span style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#A0431A;padding-top:3px">03</span><span style="font-size:16.5px;line-height:1.6;color:#3F3F46"><strong style="color:#171514;font-weight:600">The erasure request arrives</strong> and Scout deletes all operational data for the store: catalog mirror, rules, generated feeds, publication history, channel diagnostics, encrypted channel credentials, and any order data. Raw third-party API responses were already on a 30-day automatic deletion cycle.</span></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:18px 0;border-top:1px solid #E7E1D9;border-bottom:1px solid #E7E1D9" data-g="4"><span style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#A0431A;padding-top:3px">04</span><span style="font-size:16.5px;line-height:1.6;color:#3F3F46"><strong style="color:#171514;font-weight:600">Financial records remain, unlinked.</strong> Billing and charge records are retained for 7 years under accounting law, with the linkage to your shop identity severed so they can no longer be tied back to your store.</span></li>
+      </ol>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">Feeds you already published live in each channel's systems under that channel's terms. Scout cannot delete them after uninstall; remove them in the channel if you wish.</p>
+    </section>
+
+    <section id="legal-basis" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">07 · Basis</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Legal basis</h2>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+        <li style="display:grid;grid-template-columns:190px 1fr;gap:18px;font-size:16.5px;line-height:1.6;color:#3F3F46" data-g="4"><strong style="color:#171514;font-weight:600">Contract</strong><span>Merchant account data is processed to perform our agreement with you — running your account, billing, support.</span></li>
+        <li style="display:grid;grid-template-columns:190px 1fr;gap:18px;font-size:16.5px;line-height:1.6;color:#3F3F46" data-g="4"><strong style="color:#171514;font-weight:600">Legal obligation</strong><span>Financial records are retained because accounting law requires it.</span></li>
+        <li style="display:grid;grid-template-columns:190px 1fr;gap:18px;font-size:16.5px;line-height:1.6;color:#3F3F46" data-g="4"><strong style="color:#171514;font-weight:600">Your instructions</strong><span>Catalog and order data is processed as your processor, on your instructions, under the terms and this page; the legal basis for that processing is yours to hold as controller.</span></li>
+      </ul>
+    </section>
+
+    <section id="transfers" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">08 · Location</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Where data is held</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">Scout is hosted by Google Cloud Platform in us-east1 (South Carolina, United States). Where data about EU or UK merchants leaves the EEA or UK — including to the channels you connect — the transfer relies on Standard Contractual Clauses, with the UK Addendum where applicable.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">Channel credentials are encrypted at rest with keys held in Google Cloud Key Management Service (Cloud KMS), and every record is scoped to a single store at the database level.</p>
+    </section>
+
+    <section id="subprocessors" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">09 · Sub-processors</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Sub-processors</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">When acting as your processor, Scout uses these categories of sub-processor. The current named list is in the <a href="../../legal/privacy/#outward">Privacy Policy</a>.</p>
+      <ul style="margin:0 0 16px;padding:0 0 0 22px;display:flex;flex-direction:column;gap:9px;font-size:16.5px;line-height:1.6;color:#3F3F46">
+        <li>The sales channels you choose to connect (feed data).</li>
+        <li>Marketplace taxonomy APIs — Amazon, Walmart, eBay (product identifiers).</li>
+        <li>A search API provider that returns public shopping listings for competitive price monitoring. Receives product titles and identifiers only; raw responses are deleted within 30 days.</li>
+        <li>An AI model provider that generates pricing and content recommendations. Receives product context only (titles, descriptions, attributes, price signals) — never customer or order data — under terms that exclude training on submitted data.</li>
+        <li>Hosting and key management — Google Cloud Platform, Google Cloud Key Management Service (Cloud KMS).</li>
+      </ul>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">We will update that list and notify installed merchants in the app at least 30 days before adding a new sub-processor.</p>
+    </section>
+
+    <section id="dpa" style="padding:0 0 52px;margin-bottom:52px;border-bottom:1px solid #E7E1D9;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">10 · DPA</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Data processing agreement</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#3F3F46">As your processor, Scout's obligations to you under Article 28 GDPR are set out in our data processing agreement: incorporated into the <a href="../../legal/terms/">Terms of Service</a>.</p>
+    </section>
+
+    <section id="complaints" style="padding:0 0 24px;scroll-margin-top:104px">
+      <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">11 · Contact</p>
+      <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Complaints and contact</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.65;color:#3F3F46">You have the right to lodge a complaint with the supervisory authority in your country. We would ask that you raise it with us first so we can try to resolve it.</p>
+      <address style="font-style:normal;display:flex;flex-direction:column;gap:8px;padding:22px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;font-size:16px;line-height:1.5;color:#3F3F46;max-width:520px">
+        <span style="color:#171514;font-weight:600">Meerkat Scout, a sole proprietorship owned by Nana A. Smith</span>
+        <span>255 Park Avenue, Worcester, MA 01605, United States</span>
+        <span>Privacy: privacy@meerkatscout.com</span>
+        <span>Data protection officer: Not required — none appointed. A sole proprietor processing no shopper personal data does not meet the Article 37 threshold.</span>
+        <span>EU / UK representative: Not currently appointed. If the service is offered to EU or UK data subjects, an Article 27 representative may be required; this will be revisited.</span>
+      </address>
+    </section>
+  </article>
+</section>
+
+<section style="position:relative;background:#0A0A0A;padding:84px 70px 88px;overflow:hidden" data-x="sec">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center" data-g="4">
+    <div>
+      <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#E2703A">Export or erase</p>
+      <h2 style="margin:0;font-size:46px;line-height:1.06;font-weight:800;letter-spacing:-.035em;color:#fff;text-wrap:pretty" data-x="h2">One email. Your data, or its deletion, within a month.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#A8A29A">Write from the email on your Shopify account, include your shop domain, and say whether you want an export or an erasure. We confirm receipt and act within the statutory period.</p>
+      <div style="display:flex;gap:14px;align-items:center">
+        <a href="#requests" style="font-size:14.5px;font-weight:600;color:#fff;background:#C2571E;border-radius:6px;padding:12px 22px">How to make a request</a>
+        <span style="font-size:14.5px;color:#D2CCC5">privacy@meerkatscout.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="position:relative;z-index:1;background:linear-gradient(180deg,#121110,#0c0c0c);border-top:1px solid #4a4540;overflow:hidden"><svg width="1440" height="430" viewBox="0 0 1440 430" fill="none" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.2"><g stroke="#6a2f18" stroke-width="1" fill="none"><path d="M-40 390C160 342 310 426 520 380 730 334 910 412 1110 366 1280 328 1380 350 1500 324"></path><path d="M-40 410C160 362 310 446 520 400 730 354 910 432 1110 386 1280 348 1380 370 1500 344"></path><path d="M1300 -40C1370 48 1310 124 1370 210 1420 286 1370 344 1400 420"></path></g></svg><div style="position:relative;z-index:2;display:grid;grid-template-columns:300px repeat(4,1fr);gap:30px;padding:48px 70px 0" data-x="foot-grid"><div data-x="foot-brand"><img loading="lazy" decoding="async" src="../../assets/img-03-light.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;width:255px;height:63px;object-fit:contain"><p style="margin:18px 0 0;max-width:270px;font-size:15.5px;line-height:1.55;color:#A8A29A">Product-feed management and commerce intelligence for Shopify merchants.</p><p style="margin:18px 0 0;font-size:15.5px;color:#D2CCC5">One catalog. Every destination.</p></div><nav aria-label="Platform"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Platform</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../platform/feed-management/" style="font-size:14.5px;color:#A8A29A">Feed Management</a></li><li><a href="../../platform/diagnostics/" style="font-size:14.5px;color:#A8A29A">Diagnostics</a></li><li><a href="../../platform/rules-engine/" style="font-size:14.5px;color:#A8A29A">Rules Engine</a></li><li><a href="../../platform/price-intelligence/" style="font-size:14.5px;color:#A8A29A">Price Intelligence</a></li><li><a href="../../platform/conversion-intelligence/" style="font-size:14.5px;color:#A8A29A">Conversion Intelligence</a></li></ul></nav><nav aria-label="Channels"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Channels</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../channels/google-shopping/" style="font-size:14.5px;color:#A8A29A">Google Shopping</a></li><li><a href="../../channels/meta/" style="font-size:14.5px;color:#A8A29A">Meta</a></li><li><a href="../../channels/amazon/" style="font-size:14.5px;color:#A8A29A">Amazon</a></li><li><a href="../../channels/walmart/" style="font-size:14.5px;color:#A8A29A">Walmart</a></li><li><a href="../../channels/" style="font-size:14.5px;color:#A8A29A">View all channels</a></li></ul></nav><nav aria-label="Resources"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Resources</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../help/#first-sync" style="font-size:14.5px;color:#A8A29A">Documentation</a></li><li><a href="../../help/" style="font-size:14.5px;color:#A8A29A">Help Center</a></li><li><a href="../../contact/" style="font-size:14.5px;color:#A8A29A">Contact</a></li><li><a href="../../security/" style="font-size:14.5px;color:#A8A29A">Security &amp; Trust</a></li></ul></nav><nav aria-label="Legal"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Legal</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../legal/privacy/" style="font-size:14.5px;color:#A8A29A">Privacy Policy</a></li><li><a href="../../legal/terms/" style="font-size:14.5px;color:#A8A29A">Terms of Service</a></li><li><a href="../../legal/gdpr/" style="font-size:14.5px;color:#FAF8F4">GDPR &amp; Data Rights</a></li><li><a href="../../legal/cookies/" style="font-size:14.5px;color:#A8A29A">Cookie Preferences</a></li></ul></nav></div><div style="position:relative;z-index:2;margin:40px 70px 0;height:1px;background:#332e2a" data-x="foot-rule"></div><div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 70px 30px" data-x="foot-bar"><p style="margin:0;font-size:14px;color:#8A857F">© 2026 Meerkat Scout. All rights reserved.</p><div style="display:flex;align-items:center;gap:20px;font-size:14px"><a href="../../legal/privacy/" style="color:#A8A29A">Privacy</a><span style="color:#5c5650">•</span><a href="../../legal/terms/" style="color:#A8A29A">Terms</a><span style="color:#5c5650">•</span><a href="../../contact/" style="color:#A8A29A">Contact</a><span style="color:#5c5650">•</span><span style="display:inline-flex;align-items:center;gap:8px;color:#A8A29A"><span aria-hidden="true">◎</span>English</span></div></div></footer>
+<script>
+// Shared responsive runtime (homepage + sub-pages) — inlined by the build scripts. Two jobs: (1) set --z so
+// 1152–1439px viewports zoom the whole 1440px design to fit, and zoom each [data-fit=W] mockup to the width
+// available in its parent below 1152px; (2) the mobile menu toggle. Without JS the CSS fallbacks still apply.
+(function () {
+  var doc = document, root = doc.documentElement, fits = [].slice.call(doc.querySelectorAll('[data-fit]')), raf = 0;
+  function num(v) { return parseFloat(v) || 0; }
+  function apply() {
+    raf = 0;
+    var w = window.innerWidth;
+    root.style.setProperty('--z', (w >= 1152 && w < 1440) ? (w / 1440).toFixed(4) : '1');
+    fits.forEach(function (el) {
+      if (w >= 1152) { el.style.zoom = ''; return; }
+      el.style.zoom = '1';
+      var nat = num(el.getAttribute('data-fit')), p = el.parentElement, ps = getComputedStyle(p), es = getComputedStyle(el);
+      var cols = ps.display === 'grid' ? ps.gridTemplateColumns.split(' ').length : 1;
+      var avail = (p.clientWidth - num(ps.paddingLeft) - num(ps.paddingRight) - num(ps.columnGap) * (cols - 1)) / cols
+        - Math.max(0, num(es.marginLeft)) - Math.max(0, num(es.marginRight));
+      var f = el.hasAttribute('data-spill') ? .9 : 1; // compositions that spill past their box keep a 5% margin each side
+      el.style.zoom = avail >= nat ? '1' : Math.max(.2, f * avail / nat).toFixed(4);
+    });
+  }
+  function queue() { if (!raf) raf = requestAnimationFrame(apply); }
+  window.addEventListener('resize', queue);
+  apply();
+
+  var btn = doc.querySelector('[data-r=burger],[data-x=burger]'), menu = doc.getElementById('ms-menu');
+  if (!btn || !menu) return;
+  function set(open) {
+    if (open) { menu.hidden = false; menu.setAttribute('data-open', ''); } else { menu.removeAttribute('data-open'); menu.hidden = true; }
+    btn.setAttribute('aria-expanded', String(open));
+  }
+  btn.addEventListener('click', function () { set(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 1152) set(false); });
+})();
+</script>
+</body>
+</html>

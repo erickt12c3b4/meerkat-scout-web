@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostics — Meerkat Scout</title>
+<meta name="description" content="Every rejection translated into one clear fix: errors normalized across channels, the exact field at fault, and correction rules that never touch Shopify.">
+<link rel="canonical" href="https://meerkatscout.com/platform/diagnostics/">
+<meta name="theme-color" content="#F7F4EF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meerkat Scout">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://meerkatscout.com/platform/diagnostics/">
+<meta property="og:title" content="Every rejection, from every channel, in one vocabulary.">
+<meta property="og:description" content="Every rejection translated into one clear fix: errors normalized across channels, the exact field at fault, and correction rules that never touch Shopify.">
+<meta property="og:image" content="https://meerkatscout.com/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meerkat Scout — Make every product ready for every channel.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every rejection, from every channel, in one vocabulary.">
+<meta name="twitter:description" content="Every rejection translated into one clear fix: errors normalized across channels, the exact field at fault, and correction rules that never touch Shopify.">
+<meta name="twitter:image" content="https://meerkatscout.com/assets/og/home.jpg">
+<link rel="icon" href="../../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="preload" href="../../fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<style>body{margin:0;min-width:1440px;background:#F7F4EF;color:#171514;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#A0431A;text-decoration:none;transition:filter .15s ease}a:hover{filter:brightness(.94)}html{scroll-behavior:smooth}</style>
+<style>button{font:inherit;cursor:pointer;transition:filter .15s ease}button:hover{filter:brightness(.94)}:focus-visible{outline:2px solid #C2571E;outline-offset:2px}</style>
+<style id="ms-responsive">
+/* Sub-page responsive layer — inlined by build/build-pages.js, which sets the hooks:
+   [data-x=…] chrome (header/menu/footer/CTA), [data-g=…] grids classified by track shape, [data-fit=W] fixed-width
+   mockups that zoom to fit (rwd.js), [data-x=mascot] absolutely-positioned mascots. Inline styles need !important.
+   Ranges: ≥1440 design as-is · 1152–1439 whole page zooms (--z) · 768–1151 tablet reflow · ≤767 phone. */
+:root{--z:1}
+[data-x=burger],[data-x=menu]{display:none}
+@media (min-width:1152px) and (max-width:1439px){body{min-width:0!important;zoom:var(--z)}}
+@media (max-width:1439px){:root{--z:.96}}
+@media (max-width:1366px){:root{--z:.92}}
+@media (max-width:1300px){:root{--z:.88}}
+@media (max-width:1240px){:root{--z:.84}}
+@media (max-width:1200px){:root{--z:.8}}
+@media (min-width:1152px){[data-x=menu]{display:none!important}}
+
+@media (max-width:1151px){
+  html,body{overflow-x:clip}
+  body{min-width:0!important}
+  [data-x=sec],[data-x=band]{padding-left:40px!important;padding-right:40px!important}
+  [data-x=rule]{margin-left:40px!important;margin-right:40px!important}
+  [data-x=hdr]{grid-template-columns:auto 1fr auto!important;padding:0 24px!important}
+  [data-x=nav],[data-x=signin]{display:none!important}
+  [data-x=burger]{display:inline-flex!important}
+  [data-x=hdr-right]{gap:12px!important}
+  [data-x=menu][data-open]{display:flex}
+  [data-g="2L"],[data-g="3L"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="3L"][data-gc]>:nth-child(2){display:none!important}
+  [data-g="2L"]>*{min-height:0!important}
+  [data-g="4"],[data-g=conn]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [data-g=conn]>:nth-child(even){display:none!important}
+  [data-g="3"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  [data-x=mascot]{display:none!important}
+  [data-fit]{zoom:.75;margin-left:auto!important;margin-right:auto!important}
+  [data-x=cta]{padding:0 40px!important;min-height:0!important;background-position:right bottom!important;background-size:auto 400px!important}
+  [data-x=cta-text]{width:100%!important;min-width:0;max-width:560px;padding:64px 0 56px!important}
+  [data-x=cta-btns]{flex-wrap:wrap}
+  [data-x=foot-grid]{grid-template-columns:repeat(4,1fr)!important;padding:44px 40px 0!important}
+  [data-x=foot-brand]{grid-column:1/-1}
+  [data-x=foot-rule]{margin:36px 40px 0!important}
+  [data-x=foot-bar]{padding:20px 40px 28px!important;flex-wrap:wrap;gap:10px}
+  [data-x=foot-compact]{padding-left:40px!important;padding-right:40px!important}
+  h1{font-size:46px!important}
+  [data-x=h2]{font-size:38px!important}
+}
+@media (max-width:1023px){
+  [data-g="2M"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="2M"]>*{min-height:0!important}
+}
+@media (max-width:899px){
+  [data-g="3"]{grid-template-columns:minmax(0,1fr)!important}
+  [data-g="3"][data-gc]>:nth-child(2){display:none!important}
+  [data-x=cta]{background-size:auto 280px!important;background-position:right -60px bottom!important}
+  [data-x=cta-text]{max-width:none;padding:56px 0 250px!important}
+}
+@media (max-width:767px){
+  [data-fit]{zoom:.42}
+  [data-x=sec],[data-x=band]{padding-left:20px!important;padding-right:20px!important}
+  [data-x=rule]{margin-left:20px!important;margin-right:20px!important}
+  [data-x=hdr]{height:64px!important;padding:0 16px!important}
+  [data-x=hdr] img{height:32px!important}
+  [data-x=hdr-right] a{padding:9px 14px!important}
+  [data-g]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important}
+  [data-g=ico3]{grid-template-columns:auto minmax(0,1fr)!important}
+  [data-x=thead]{display:none!important}
+  [data-g=ico3]>:nth-child(3){grid-column:2}
+  [data-x=cta]{padding:0 20px!important}
+  [data-x=cta] h2{font-size:34px!important}
+  [data-x=cta-btns]>a{width:100%}
+  [data-x=btnrow]{flex-wrap:wrap}
+  [data-x=facts]{flex-wrap:wrap;row-gap:12px}
+  [data-x=facts]>*{flex:1 1 140px;min-width:0}
+  form{padding-left:20px!important;padding-right:20px!important}
+  [data-x=foot-grid]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding:40px 20px 0!important}
+  [data-x=foot-rule]{margin:32px 20px 0!important}
+  [data-x=foot-bar]{padding:18px 20px 28px!important}
+  [data-x=foot-compact]{padding-left:20px!important;padding-right:20px!important;flex-wrap:wrap}
+  h1{font-size:34px!important;line-height:1.08!important}
+  [data-x=h2]{font-size:30px!important}
+  [data-x=lede]{font-size:16.5px!important}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://meerkatscout.com/platform/diagnostics/#webpage","url":"https://meerkatscout.com/platform/diagnostics/","name":"Diagnostics — Meerkat Scout","description":"Every rejection translated into one clear fix: errors normalized across channels, the exact field at fault, and correction rules that never touch Shopify.","isPartOf":{"@id":"https://meerkatscout.com/#website"},"about":{"@id":"https://meerkatscout.com/#org"},"primaryImageOfPage":"https://meerkatscout.com/assets/og/home.jpg","breadcrumb":{"@id":"https://meerkatscout.com/platform/diagnostics/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://meerkatscout.com/platform/diagnostics/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://meerkatscout.com/"},{"@type":"ListItem","position":2,"name":"Diagnostics","item":"https://meerkatscout.com/platform/diagnostics/"}]}]}</script>
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:40;height:80px;background:rgba(250,249,247,.82);backdrop-filter:saturate(1.25) blur(12px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 22px;box-sizing:border-box" data-x="hdr"><a href="../../" aria-label="Meerkat Scout home" style="display:flex;align-items:center;gap:10px"><img src="../../assets/img-03.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;height:42px;width:auto"></a><nav style="display:flex;align-items:center;gap:34px;font-size:14.5px;font-weight:500;color:#3F3F46" data-x="nav"><a href="../../#platform" style="color:#171514;font-weight:600">Platform</a><a href="../../channels/" style="color:#3F3F46">Channels</a><a href="../../help/" style="color:#3F3F46">Resources</a><a href="../../pricing/" style="color:#3F3F46">Pricing</a></nav><div style="display:flex;align-items:center;justify-content:flex-end;gap:20px" data-x="hdr-right"><a href="#signin" style="font-size:14.5px;font-weight:500;color:#3F3F46" data-x="signin">Sign in</a><a href="../../demo/" style="font-size:14.5px;font-weight:600;color:#fff;background:#C2571E;border-radius:6px;padding:11px 20px;box-shadow:0 1px 2px rgba(24,24,27,.10)">Book a demo</a><button data-x="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ms-menu" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #E6E1D9;border-radius:8px;background:#fff;color:#171514;cursor:pointer;flex:none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div><nav id="ms-menu" data-x="menu" aria-label="Menu" hidden="" style="position:absolute;left:0;right:0;top:100%;z-index:50;flex-direction:column;padding:6px 24px 18px;background:#FAF9F7;border-bottom:1px solid #E6E1D9;box-shadow:0 18px 40px rgba(24,24,27,.08)"><a href="../../#platform" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Platform</a><a href="../../channels/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Channels</a><a href="../../help/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Resources</a><a href="../../pricing/" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:600;color:#171514">Pricing</a><a href="#signin" style="display:block;padding:15px 0;border-bottom:1px solid #EDE9E4;font-size:17px;font-weight:500;color:#52525B">Sign in</a></nav></header>
+
+<section style="background:#F7F4EF;padding:84px 70px 72px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end" data-x="sec" data-g="4">
+  <div>
+    <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">Platform · Diagnostics</p>
+    <h1 style="margin:0;font-size:57px;line-height:1.08;font-weight:800;letter-spacing:-.035em;text-wrap:pretty">Every rejection, from every channel, in one vocabulary.</h1>
+  </div>
+  <div style="padding-bottom:6px">
+    <p style="margin:0;font-size:17.5px;line-height:1.55;color:#52525B;max-width:520px;text-wrap:pretty">Ten channels describe the same broken field ten different ways. Scout collects every rejection, normalizes it into one problem, counts the products behind it, and names the exact field that would fix it.</p>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:30px" data-x="btnrow">
+      <a href="#translate" style="display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:8px;background:#171514;font-size:16px;font-weight:600;color:#fff">See the translation</a>
+      <a href="../../pricing/" style="display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:8px;border:1px solid #D9D2C8;font-size:16px;font-weight:600;color:#171514">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<section id="translate" style="position:relative;background:#0A0A0A;padding:92px 70px 96px;overflow:hidden" data-x="sec">
+  <div aria-hidden="true" style="position:absolute;right:-100px;top:80px;width:900px;height:700px;pointer-events:none;background:radial-gradient(closest-side,rgba(160,67,26,.16),transparent 70%)"></div>
+  <div style="position:relative;z-index:2">
+    <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E2703A">Three voices, one instruction</p>
+    <h2 style="margin:0 0 56px;font-size:52px;line-height:1.06;font-weight:800;letter-spacing:-.035em;color:#fff;max-width:760px;text-wrap:pretty" data-x="h2">Three channels said it three ways. Scout says it once, and names the field.</h2>
+    <div style="display:grid;grid-template-columns:470px 300px 1fr;gap:0;align-items:center" data-g="4">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:#141312;border:1px solid #2E2A26;border-radius:10px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #2E2A26"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#D2CCC5"><span style="width:8px;height:8px;border-radius:2px;background:#4285F4"></span>Google Merchant Center</span><span style="font-size:11.5px;color:#8A857F">item-level issue</span></div>
+          <p style="margin:0;padding:16px 16px 18px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.6;color:#EDEAE6">Missing value [gtin]<br><span style="color:#8A857F">Limited performance because of missing identifiers · 214 items</span></p>
+        </div>
+        <div style="background:#141312;border:1px solid #2E2A26;border-radius:10px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #2E2A26"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#D2CCC5"><span style="width:8px;height:8px;border-radius:2px;background:#FF9900"></span>Amazon Seller Central</span><span style="font-size:11.5px;color:#8A857F">processing report</span></div>
+          <p style="margin:0;padding:16px 16px 18px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.6;color:#EDEAE6">Missing or invalid external_product_id<br><span style="color:#8A857F">A UPC/EAN is required for this product type · 187 SKUs</span></p>
+        </div>
+        <div style="background:#141312;border:1px solid #2E2A26;border-radius:10px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #2E2A26"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#D2CCC5"><span style="width:8px;height:8px;border-radius:2px;background:#E53238"></span>eBay Seller Hub</span><span style="font-size:11.5px;color:#8A857F">listing error</span></div>
+          <p style="margin:0;padding:16px 16px 18px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.6;color:#EDEAE6">Item specific "UPC" is required for this category<br><span style="color:#8A857F">Provide a value or "Does not apply" · 214 listings</span></p>
+        </div>
+      </div>
+      <svg width="300" height="420" viewBox="0 0 300 420" fill="none" aria-hidden="true" style="display:block">
+        <path d="M0 62 C120 62 160 210 300 210" stroke="#6a2f18" stroke-width="1.5" stroke-dasharray="4 5"></path>
+        <path d="M0 210 L300 210" stroke="#6a2f18" stroke-width="1.5" stroke-dasharray="4 5"></path>
+        <path d="M0 358 C120 358 160 210 300 210" stroke="#6a2f18" stroke-width="1.5" stroke-dasharray="4 5"></path>
+        <circle cx="0" cy="62" r="4" fill="#E2703A"></circle><circle cx="0" cy="210" r="4" fill="#E2703A"></circle><circle cx="0" cy="358" r="4" fill="#E2703A"></circle>
+        <circle cx="300" cy="210" r="6" fill="#A0431A"></circle>
+      </svg>
+      <div style="background:#fff;border:1px solid #EDE9E4;border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.45);padding:26px 28px 24px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Normalized problem</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#A0431A;background:#FFF6E8;border:1px solid #F3C7AE;border-radius:999px;padding:4px 10px">Error</span>
+        </div>
+        <p style="margin:12px 0 0;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.05" data-x="lede">Missing GTIN</p>
+        <p style="margin:14px 0 0;font-size:15.5px;line-height:1.55;color:#52525B">The product has no barcode value, so three channels cannot match it to a catalog identity.</p>
+        <div style="margin:22px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px" data-g="4">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Products</span><span style="font-size:20px;font-weight:700;letter-spacing:-.02em">214</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Channels</span><span style="font-size:20px;font-weight:700;letter-spacing:-.02em">3 <span style="font-size:14px;font-weight:500;color:#6B655E">of 3 connected</span></span></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Field to fix</span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#A0431A;background:#FFF6E8;padding:3px 8px;border-radius:4px;width:fit-content">variants.barcode</code></div>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Auto-fixable</span><span style="font-size:15px;font-weight:600;color:#171514">No — needs a value from you</span></div>
+        </div>
+        <div style="margin:22px 0 0;height:1px;background:#EDE9E4"></div>
+        <div style="margin:18px 0 0;display:flex;align-items:center;justify-content:space-between;gap:14px">
+          <a href="../../platform/rules-engine/" style="display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:8px;background:#171514;font-size:14.5px;font-weight:600;color:#fff">Open rule: Set barcode from SKU map →</a>
+          <span style="font-size:13px;color:#8A857F">Fix once · clears 3 channels</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin:44px 0 0;font-size:15.5px;line-height:1.6;color:#8A857F;max-width:760px">Scout keeps the channel's original text on every diagnostic — the translation sits beside it, never in place of it. Nothing is paraphrased away.</p>
+  </div>
+</section>
+
+<section style="background:#F7F4EF;padding:96px 70px 90px" data-x="sec">
+  <div style="display:grid;grid-template-columns:480px 1fr;gap:60px;align-items:end;margin-bottom:44px" data-g="4">
+    <div>
+      <p style="margin:0 0 20px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">Grouped by problem</p>
+      <h2 style="margin:0;font-size:46px;line-height:1.04;font-weight:800;letter-spacing:-.038em;text-wrap:pretty" data-x="h2">One row per problem, not one row per rejection.</h2>
+    </div>
+    <p style="margin:0;font-size:17.5px;line-height:1.55;color:#52525B;max-width:560px;text-wrap:pretty">Six hundred rejections across three channels collapse into five things to fix. Expand any group to see the products behind it, filter to what you can act on today, and jump straight to the rule that clears it.</p>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+    <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F;margin-right:6px">Filter</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#171514;background:#fff;border:1px solid #171514;border-radius:999px;padding:7px 13px">Channel · All 3</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#6B655E;background:#fff;border:1px solid #E7E1D9;border-radius:999px;padding:7px 13px">Code</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#A0431A;background:#FFF6E8;border:1px solid #F3C7AE;border-radius:999px;padding:7px 13px">Severity · Error</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#6B655E;background:#fff;border:1px solid #E7E1D9;border-radius:999px;padding:7px 13px">Auto-fixable</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#171514;background:#fff;border:1px solid #171514;border-radius:999px;padding:7px 13px">Open</span>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#6B655E;background:#fff;border:1px solid #E7E1D9;border-radius:999px;padding:7px 13px">Resolved</span>
+    <span style="margin-left:auto;font-size:14px;color:#8A857F">5 problems · 389 products · 3 channels</span>
+  </div>
+  <div style="background:#fff;border:1px solid #EDE9E4;border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(24,24,27,.06)">
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:12px 22px;background:#FAF9F8;border-bottom:1px solid #EDE9E4;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F"><span></span><span>Problem</span><span>Severity</span><span>Products</span><span>Channels</span><span>Field</span><span>Rule</span></div>
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:16px 22px;border-bottom:1px solid #EDE9E4;font-size:15px;align-items:center;background:#FFFBF6" data-g="4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#171514" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg><span style="font-weight:700">Missing GTIN</span><span style="color:#A0431A;font-weight:600">Error</span><span style="font-weight:600">214</span><span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:#4285F4"></span><span style="width:9px;height:9px;border-radius:2px;background:#FF9900"></span><span style="width:9px;height:9px;border-radius:2px;background:#E53238"></span></span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#A0431A">variants.barcode</code><a href="../../platform/rules-engine/" style="font-size:14px;font-weight:600">Set barcode from SKU map →</a></div>
+    <div style="display:grid;grid-template-columns:28px 1fr;gap:16px;padding:0 22px;border-bottom:1px solid #EDE9E4;background:#FFFBF6" data-g="4"><span></span><div style="border-left:2px solid #F3C7AE;margin:0 0 14px;padding-left:18px;display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:10px 0 8px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F"><span>Product</span><span>SKU</span><span>Google · Amazon · eBay</span><span>Original message</span></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:9px 0;border-top:1px solid #F1ECE5;font-size:14px;color:#3F3F46;align-items:center" data-g="4"><span>Northline Court Shoe 2 — Black</span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px">NL-CS2-BLK-10</code><span style="display:flex;gap:6px;font-size:12.5px;color:#A0431A;font-weight:600"><span>✕</span><span>✕</span><span>✕</span></span><span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#8A857F">Missing value [gtin]</span></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:9px 0;border-top:1px solid #F1ECE5;font-size:14px;color:#3F3F46;align-items:center" data-g="4"><span>Northline Court Shoe 2 — White</span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px">NL-CS2-WHT-10</code><span style="display:flex;gap:6px;font-size:12.5px;color:#A0431A;font-weight:600"><span>✕</span><span>✕</span><span>✕</span></span><span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#8A857F">Missing value [gtin]</span></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:9px 0;border-top:1px solid #F1ECE5;font-size:14px;color:#3F3F46;align-items:center" data-g="4"><span>Baseline Wristband · 2-pack</span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px">BL-WB-2PK</code><span style="display:flex;gap:6px;font-size:12.5px;font-weight:600"><span style="color:#A0431A">✕</span><span style="color:#1F7A4C">✓</span><span style="color:#A0431A">✕</span></span><span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#8A857F">Item specific "UPC" is required</span></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:9px 0;border-top:1px solid #F1ECE5;font-size:14px;color:#3F3F46;align-items:center" data-g="4"><span>Overgrip · Tacky · 3-pack</span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px">OG-TK-3</code><span style="display:flex;gap:6px;font-size:12.5px;color:#A0431A;font-weight:600"><span>✕</span><span>✕</span><span>✕</span></span><span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;color:#8A857F">Missing or invalid external_product_id</span></div>
+      <div style="padding:10px 0 4px;font-size:13px;color:#8A857F">210 more products · <a href="#" style="font-weight:600">Show all</a></div>
+    </div></div>
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:16px 22px;border-bottom:1px solid #EDE9E4;font-size:15px;align-items:center" data-g="4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A857F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg><span style="font-weight:600">Image below minimum size</span><span style="color:#A0431A;font-weight:600">Error</span><span style="font-weight:600">88</span><span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:#4285F4"></span><span style="width:9px;height:9px;border-radius:2px;background:#1877F2"></span></span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#A0431A">images[0].src</code><a href="../../platform/rules-engine/" style="font-size:14px;font-weight:600">Set image_link from variant image →</a></div>
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:16px 22px;border-bottom:1px solid #EDE9E4;font-size:15px;align-items:center" data-g="4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A857F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg><span style="font-weight:600">Price differs from landing page</span><span style="color:#A0431A;font-weight:600">Error</span><span style="font-weight:600">19</span><span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:#4285F4"></span></span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#A0431A">variants.price</code><a href="../../platform/feed-management/" style="font-size:14px;font-weight:600">Regenerate from current mirror →</a></div>
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:16px 22px;border-bottom:1px solid #EDE9E4;font-size:15px;align-items:center" data-g="4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A857F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg><span style="font-weight:600">Title exceeds channel limit</span><span style="color:#B27A2A;font-weight:600">Warning</span><span style="font-weight:600">61</span><span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:#FF9900"></span></span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#A0431A">title</code><a href="../../platform/rules-engine/" style="font-size:14px;font-weight:600">Replace: truncate title to 200 →</a></div>
+    <div style="display:grid;grid-template-columns:28px 1.6fr .7fr .8fr 1fr 1.2fr 1.3fr;gap:16px;padding:16px 22px;font-size:15px;align-items:center" data-g="4"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A857F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"></path></svg><span style="font-weight:600">Missing shipping attribute</span><span style="color:#B27A2A;font-weight:600">Warning</span><span style="font-weight:600">7</span><span style="display:flex;gap:5px"><span style="width:9px;height:9px;border-radius:2px;background:#4285F4"></span></span><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:#A0431A">shipping</code><a href="../../platform/rules-engine/" style="font-size:14px;font-weight:600">Set shipping from template →</a></div>
+  </div>
+</section>
+
+<section style="background:#F7F4EF;padding:0 70px 96px" data-x="sec">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px" data-g="4">
+    <div style="display:flex;flex-direction:column;gap:12px;padding:26px 26px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The field</span><strong style="font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2">Not "fix your data" — <code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:18px;color:#A0431A">variants.barcode</code></strong><p style="margin:0;font-size:15.5px;line-height:1.55;color:#52525B">Every diagnostic resolves to a path in your catalog. If Scout can't name the field, it says so rather than pointing vaguely at the product.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;padding:26px 26px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The rule</span><strong style="font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2">A link to the rule that clears it</strong><p style="margin:0;font-size:15.5px;line-height:1.55;color:#52525B">Where a transformation can fix the group, the row links into the <a href="../../platform/rules-engine/">Rules Engine</a> with the field pre-selected. Where it needs a value only you have, the row says that instead.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px;padding:26px 26px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The severity</span><strong style="font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.2">Error blocks. Warning limits.</strong><p style="margin:0;font-size:15.5px;line-height:1.55;color:#52525B">One scale across all channels, mapped from each channel's own terms. A resolved group stays in history with the run that cleared it, so you can see what changed and when.</p></div>
+  </div>
+</section>
+
+<section style="background:#F7F4EF;padding:0 70px 96px" data-x="sec">
+  <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The loop</p>
+  <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:12px;align-items:center" data-g="4">
+    <span style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#171514;border:1px solid #171514;border-radius:10px;color:#fff"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F3C7AE">Diagnostics</span><span style="font-size:16px;font-weight:600">names the field</span></span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A0431A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+    <a href="../../platform/rules-engine/" style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;color:#171514"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Rules Engine</span><span style="font-size:16px;font-weight:600">fixes it</span></a>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A0431A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+    <a href="../../platform/feed-management/" style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;color:#171514"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Feed Management</span><span style="font-size:16px;font-weight:600">republishes it</span></a>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A0431A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+    <a href="../../platform/conversion-intelligence/" style="display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#fff;border:1px solid #EDE9E4;border-radius:10px;color:#171514"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Conversion Intelligence</span><span style="font-size:16px;font-weight:600">says whether it mattered</span></a>
+  </div>
+</section>
+
+<section style="position:relative;display:flex;align-items:center;min-height:480px;padding:0 100px;box-sizing:border-box;background:#0B0A09 url(../../assets/scout-prefooter.webp) center bottom/cover no-repeat;overflow:hidden" data-x="cta">
+  <svg width="1440" height="452" viewBox="0 0 1440 452" fill="none" aria-hidden="true" style="position:absolute;left:0;bottom:0;pointer-events:none;opacity:.35;-webkit-mask-image:linear-gradient(90deg,#000 48%,transparent 66%);mask-image:linear-gradient(90deg,#000 48%,transparent 66%)"><g stroke="#6a2f18" stroke-width="1" fill="none"><path d="M-40 390C160 342 310 426 520 380 730 334 910 412 1110 366 1280 328 1380 350 1500 324"></path></g></svg>
+  <div style="position:relative;z-index:2;width:760px;flex:none;padding:72px 0 64px" data-x="cta-text"><div><p style="margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E2703A">Put Scout on watch</p><h2 style="margin:0;font-size:46px;line-height:1.06;font-weight:800;letter-spacing:-.035em;color:#fff" data-x="h2">Ready to put Scout on watch?</h2><p style="margin:20px 0 0;max-width:520px;font-size:17.5px;line-height:1.55;color:#B7B0A8;text-wrap:pretty">Connect your Shopify store and see the state of every feed, channel, and product from one place.</p><div style="display:flex;align-items:center;gap:16px;margin-top:30px" data-x="cta-btns"><a href="../../pricing/" style="display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:8px;background:#FAF8F4;border:1px solid #FAF8F4;font-size:17px;font-weight:600;color:#171514">Start your 14-day free trial</a><a href="../../demo/" style="display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:8px;background:transparent;border:1px solid #46423E;font-size:17px;font-weight:600;color:#fff">Book a demo</a></div><div style="display:flex;align-items:center;gap:12px;margin-top:28px"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#8A837B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M12 3l7.5 3v5.5c0 4.4-3.1 8.2-7.5 9.5-4.4-1.3-7.5-5.1-7.5-9.5V6z"></path></svg><span style="font-size:15.5px;color:#B7B0A8">No card required. Scout never edits your Shopify products.</span></div></div></div>
+</section>
+
+<footer style="position:relative;z-index:1;background:linear-gradient(180deg,#121110,#0c0c0c);border-top:1px solid #4a4540;overflow:hidden"><svg width="1440" height="430" viewBox="0 0 1440 430" fill="none" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.2"><g stroke="#6a2f18" stroke-width="1" fill="none"><path d="M-40 390C160 342 310 426 520 380 730 334 910 412 1110 366 1280 328 1380 350 1500 324"></path><path d="M-40 410C160 362 310 446 520 400 730 354 910 432 1110 386 1280 348 1380 370 1500 344"></path><path d="M1300 -40C1370 48 1310 124 1370 210 1420 286 1370 344 1400 420"></path></g></svg><div style="position:relative;z-index:2;display:grid;grid-template-columns:300px repeat(4,1fr);gap:30px;padding:48px 70px 0" data-x="foot-grid"><div data-x="foot-brand"><img loading="lazy" decoding="async" src="../../assets/img-03-light.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;width:255px;height:63px;object-fit:contain"><p style="margin:18px 0 0;max-width:270px;font-size:15.5px;line-height:1.55;color:#A8A29A">Product-feed management and commerce intelligence for Shopify merchants.</p><p style="margin:18px 0 0;font-size:15.5px;color:#D2CCC5">One catalog. Every destination.</p></div><nav aria-label="Platform"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Platform</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../platform/feed-management/" style="font-size:14.5px;color:#A8A29A">Feed Management</a></li><li><a href="../../platform/diagnostics/" style="font-size:14.5px;color:#FAF8F4">Diagnostics</a></li><li><a href="../../platform/rules-engine/" style="font-size:14.5px;color:#A8A29A">Rules Engine</a></li><li><a href="../../platform/price-intelligence/" style="font-size:14.5px;color:#A8A29A">Price Intelligence</a></li><li><a href="../../platform/conversion-intelligence/" style="font-size:14.5px;color:#A8A29A">Conversion Intelligence</a></li></ul></nav><nav aria-label="Channels"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Channels</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../channels/google-shopping/" style="font-size:14.5px;color:#A8A29A">Google Shopping</a></li><li><a href="../../channels/meta/" style="font-size:14.5px;color:#A8A29A">Meta</a></li><li><a href="../../channels/amazon/" style="font-size:14.5px;color:#A8A29A">Amazon</a></li><li><a href="../../channels/walmart/" style="font-size:14.5px;color:#A8A29A">Walmart</a></li><li><a href="../../channels/" style="font-size:14.5px;color:#A8A29A">View all channels</a></li></ul></nav><nav aria-label="Resources"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Resources</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../help/#first-sync" style="font-size:14.5px;color:#A8A29A">Documentation</a></li><li><a href="../../help/" style="font-size:14.5px;color:#A8A29A">Help Center</a></li><li><a href="../../contact/" style="font-size:14.5px;color:#A8A29A">Contact</a></li><li><a href="../../security/" style="font-size:14.5px;color:#A8A29A">Security &amp; Trust</a></li></ul></nav><nav aria-label="Legal"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Legal</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../legal/privacy/" style="font-size:14.5px;color:#A8A29A">Privacy Policy</a></li><li><a href="../../legal/terms/" style="font-size:14.5px;color:#A8A29A">Terms of Service</a></li><li><a href="../../legal/gdpr/" style="font-size:14.5px;color:#A8A29A">GDPR &amp; Data Rights</a></li><li><a href="../../legal/cookies/" style="font-size:14.5px;color:#A8A29A">Cookie Preferences</a></li></ul></nav></div><div style="position:relative;z-index:2;margin:40px 70px 0;height:1px;background:#332e2a" data-x="foot-rule"></div><div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 70px 30px" data-x="foot-bar"><p style="margin:0;font-size:14px;color:#8A857F">© 2026 Meerkat Scout. All rights reserved.</p><div style="display:flex;align-items:center;gap:20px;font-size:14px"><a href="../../legal/privacy/" style="color:#A8A29A">Privacy</a><span style="color:#5c5650">•</span><a href="../../legal/terms/" style="color:#A8A29A">Terms</a><span style="color:#5c5650">•</span><a href="../../contact/" style="color:#A8A29A">Contact</a><span style="color:#5c5650">•</span><span style="display:inline-flex;align-items:center;gap:8px;color:#A8A29A"><span aria-hidden="true">◎</span>English</span></div></div></footer>
+<script>
+// Shared responsive runtime (homepage + sub-pages) — inlined by the build scripts. Two jobs: (1) set --z so
+// 1152–1439px viewports zoom the whole 1440px design to fit, and zoom each [data-fit=W] mockup to the width
+// available in its parent below 1152px; (2) the mobile menu toggle. Without JS the CSS fallbacks still apply.
+(function () {
+  var doc = document, root = doc.documentElement, fits = [].slice.call(doc.querySelectorAll('[data-fit]')), raf = 0;
+  function num(v) { return parseFloat(v) || 0; }
+  function apply() {
+    raf = 0;
+    var w = window.innerWidth;
+    root.style.setProperty('--z', (w >= 1152 && w < 1440) ? (w / 1440).toFixed(4) : '1');
+    fits.forEach(function (el) {
+      if (w >= 1152) { el.style.zoom = ''; return; }
+      el.style.zoom = '1';
+      var nat = num(el.getAttribute('data-fit')), p = el.parentElement, ps = getComputedStyle(p), es = getComputedStyle(el);
+      var cols = ps.display === 'grid' ? ps.gridTemplateColumns.split(' ').length : 1;
+      var avail = (p.clientWidth - num(ps.paddingLeft) - num(ps.paddingRight) - num(ps.columnGap) * (cols - 1)) / cols
+        - Math.max(0, num(es.marginLeft)) - Math.max(0, num(es.marginRight));
+      var f = el.hasAttribute('data-spill') ? .9 : 1; // compositions that spill past their box keep a 5% margin each side
+      el.style.zoom = avail >= nat ? '1' : Math.max(.2, f * avail / nat).toFixed(4);
+    });
+  }
+  function queue() { if (!raf) raf = requestAnimationFrame(apply); }
+  window.addEventListener('resize', queue);
+  apply();
+
+  var btn = doc.querySelector('[data-r=burger],[data-x=burger]'), menu = doc.getElementById('ms-menu');
+  if (!btn || !menu) return;
+  function set(open) {
+    if (open) { menu.hidden = false; menu.setAttribute('data-open', ''); } else { menu.removeAttribute('data-open'); menu.hidden = true; }
+    btn.setAttribute('aria-expanded', String(open));
+  }
+  btn.addEventListener('click', function () { set(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 1152) set(false); });
+})();
+</script>
+</body>
+</html>
