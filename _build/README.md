@@ -47,7 +47,9 @@ node ~/meerkat-site-new/_build/qa/audit.mjs http://127.0.0.1:3300/ /tmp/qa/shots
 
 On the WSL dev box WebKit needs extra system libraries and there is no sudo. Unpack the `.deb`s with `dpkg-deb -x`
 into a folder, pass that folder as `PW_EXTRA_LD` (the MiniBrowser wrapper in `~/.cache/ms-playwright/webkit-*/`
-appends it to `LD_LIBRARY_PATH`), and set `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1`.
+appends it to `LD_LIBRARY_PATH`), and set `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=1`. For HTTPS (auditing the
+live site), also unpack `glib-networking` and point `GIO_EXTRA_MODULES` at the folder holding `libgiognutls.so`;
+without it, WebKit fails with "TLS support is not available".
 
 Per page and device, the audit checks:
 - horizontal scroll: `scrollWidth <= innerWidth`
