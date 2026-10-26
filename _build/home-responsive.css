@@ -1,0 +1,142 @@
+/* Homepage responsive layer — inlined by _build/responsive.mjs. Hooks: [data-r] set by the export (build-home.js),
+   [data-m~=…] mobile roles set by _build/responsive.mjs (copy · tap · tapr · frow); the design's inline styles need
+   !important to override. Ranges: ≥1440 design as-is · 1152–1439 whole page zooms (--z, set by
+   home-responsive.js) · 768–1151 tablet reflow · ≤767 phone. Mockups keep their pixel layout and zoom to fit ([data-fit]). */
+:root{--z:1}
+[data-r=burger]{display:none}
+[data-r=menu]{display:none}
+@media (min-width:1152px) and (max-width:1439px){
+  body{min-width:0}
+  [data-r=root]{zoom:var(--z)}
+}
+@media (max-width:1439px){:root{--z:.96}}
+@media (max-width:1366px){:root{--z:.92}}
+@media (max-width:1300px){:root{--z:.88}}
+@media (max-width:1240px){:root{--z:.84}}
+@media (max-width:1200px){:root{--z:.8}}
+@media (min-width:1152px){[data-r=menu]{display:none!important}}
+
+@media (max-width:1151px){
+  body{min-width:0}
+  [data-r=root]{width:100%!important}
+  [data-fit]{zoom:.75}
+  /* header: nav + sign-in move into the menu */
+  [data-r=hdr]{grid-template-columns:auto 1fr auto!important;padding:0 24px!important}
+  [data-r=nav],[data-r=signin]{display:none!important}
+  [data-r=burger]{display:inline-flex!important}
+  [data-r=hdr-right]{gap:12px!important}
+  [data-r=menu][data-open]{display:flex}
+  /* hero: copy first, then the right 800px of the composition as a stage that zooms to fit */
+  [data-r=hero]{height:auto!important;display:flex;flex-direction:column}
+  [data-r=hero-text]{padding:64px 40px 32px!important;max-width:none!important;order:1}
+  [data-r=hero-h1]{font-size:48px!important;max-width:680px!important}
+  [data-r=hero-stage]{position:relative!important;inset:auto!important;width:800px;height:634px;margin:0 auto;overflow:hidden;order:2}
+  [data-r=hero-stage]>*{margin-left:-640px}
+  /* one catalog */
+  [data-r=catalog]{padding:56px 0 64px!important}
+  [data-r=catalog-h2]{width:auto!important;max-width:700px;padding:0 40px;box-sizing:border-box}
+  [data-r=catalog-row]{width:auto!important;padding:0 40px;flex-wrap:wrap;row-gap:10px}
+  [data-r=catalog-card]{width:auto!important;margin:36px 40px 0!important;flex-wrap:wrap}
+  [data-r=catalog-card]>span:last-child{flex-wrap:wrap}
+  /* diagnostics */
+  [data-r=diag]{min-height:0!important;padding:72px 0 80px!important}
+  [data-r=diag-text]{width:auto!important;max-width:600px;margin:0 40px!important}
+  [data-r=diag-mock]{position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:48px 40px 0}
+  /* price intelligence */
+  [data-r=price]{min-height:0!important;padding:72px 0 80px!important;display:flex;flex-direction:column}
+  [data-r=price-text]{position:relative!important;left:auto!important;top:auto!important;width:auto!important;max-width:600px;margin:0 40px;order:1}
+  [data-r=price-mock]{position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:48px 40px 0;order:2}
+  /* conversion intelligence */
+  [data-r=conv]{padding:72px 0 80px!important}
+  [data-r=conv-row]{flex-direction:column!important;padding:0 40px!important;gap:48px!important}
+  [data-r=conv-text]{width:auto!important;max-width:600px;padding-top:0!important}
+  /* how scout works: the 1440px canvas becomes a grid of the four step cards */
+  [data-r=how]{min-height:0!important;padding:64px 0 48px!important}
+  [data-r=how-head]{padding:0 40px!important}
+  [data-r=how-canvas]{width:auto!important;height:auto!important;margin:36px 40px 0!important;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  [data-r=how-canvas]>:not([data-r]){display:none!important}
+  [data-r=how-map]{position:relative!important;left:auto!important;top:auto!important;width:220px!important;height:auto!important;margin:0 auto 8px;grid-column:1/-1}
+  [data-r=how-card]{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;min-height:220px;transform:none!important}
+  [data-r=how-note]{padding:0 40px!important;margin-top:28px}
+  /* channels: copy + command center first, Scout banner after */
+  [data-r=chan]{min-height:0!important;padding:72px 0 80px;display:flex;flex-direction:column}
+  [data-r=chan]>svg,[data-r=chan-fade]{display:none!important}
+  [data-r=chan-img]{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:380px!important;margin:48px 40px 0;order:2;border-radius:16px;overflow:hidden}
+  [data-r=chan-img] img{object-position:50% 18%}
+  [data-r=chan-panel]{position:relative!important;left:auto!important;top:auto!important;width:auto!important;transform:none!important;margin:0 40px;order:1}
+  [data-r=chan-card1]{width:744px}
+  [data-r=chan-card2]{width:742px}
+  /* pricing + cta */
+  [data-r=pricing]{padding:72px 0 0!important}
+  [data-r=pricing-wrap]{padding:0 40px!important}
+  [data-r=plans]{gap:16px!important}
+  [data-r=plan-chips]{flex-wrap:wrap;row-gap:12px}
+  [data-r=cta]{padding:0 40px!important;min-height:0!important;background-position:right bottom!important;background-size:auto 400px!important}
+  [data-r=cta-text]{width:100%!important;min-width:0;max-width:560px;padding:64px 0 56px!important}
+  [data-r=cta-btns]{flex-wrap:wrap}
+  /* footer */
+  [data-r=foot-grid]{grid-template-columns:repeat(4,1fr)!important;padding:44px 40px 0!important}
+  [data-r=foot-brand]{grid-column:1/-1}
+  [data-r=foot-rule]{margin:36px 40px 0!important}
+  [data-r=foot-bar]{padding:20px 40px 28px!important;flex-wrap:wrap;gap:10px}
+  /* type */
+  [data-r=diag-text] h2,[data-r=price-text] h2,[data-r=conv-text] h2,[data-r=chan-panel] h2,[data-r=pricing-h2],[data-r=how-head] h2{font-size:42px!important}
+  /* touch: body copy at 16px, 44px targets (see rwd-pages.css) */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  [data-m~=frow]{flex-wrap:wrap!important;row-gap:18px!important}
+  [data-m~=frow]>*{min-width:0}
+  [data-m~=copy]{font-size:16px!important}
+  input:not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px!important}
+  [data-m~=tap]:not([style*="position:absolute"]),[data-r=hdr]>a:first-child,[data-r=hdr-right]>a,[data-r=foot-bar] a{position:relative}
+  [data-m~=tap]::after,[data-r=hdr]>a:first-child::after,[data-r=hdr-right]>a::after,[data-r=foot-bar] a::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  [data-m~=tapr]{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}
+  ul:has(>li [data-m~=tap]){gap:0!important}
+  ul:has(>li [data-m~=tap])>li{min-height:46px;align-items:center!important;position:relative}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]{position:static!important}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]::after{left:0;top:0;width:100%;height:100%;transform:none}
+  [data-r=foot-grid] ul{gap:0!important}
+  [data-r=foot-grid] h2{margin-bottom:6px!important}
+  [data-r=foot-grid] li>a{display:flex;align-items:center;min-height:44px}
+}
+
+@media (max-width:899px){
+  [data-r=plans]{flex-direction:column!important;max-width:460px!important;align-items:stretch!important}
+  [data-r=plans]>div{margin-top:0!important}
+  [data-r=plan-chips]>span{border-left:0!important;padding:0 12px!important}
+  [data-r=cta]{background-size:auto 280px!important;background-position:right -60px bottom!important}
+  [data-r=cta-text]{max-width:none;padding:56px 0 250px!important}
+}
+
+@media (max-width:767px){
+  [data-fit]{zoom:.42}
+  [data-r=hdr]{height:64px!important;padding:0 16px!important}
+  [data-r=hdr] img{height:32px!important}
+  [data-r=hdr-right] a{padding:9px 14px!important}
+  [data-r=menu]{top:64px}
+  [data-r=hero-text]{padding:44px 20px 28px!important}
+  [data-r=hero-h1]{font-size:38px!important}
+  [data-r=hero-h1] br,[data-r=hero-p] br{display:none}
+  [data-r=hero-p]{font-size:16.5px!important}
+  [data-r=hero-cta]{flex-wrap:wrap}
+  [data-r=catalog-h2]{font-size:26px!important;padding:0 20px}
+  [data-r=catalog-row]{padding:0 20px}
+  [data-r=catalog-row]>span:nth-child(even){display:none}
+  [data-r=catalog-card]{margin:28px 20px 0!important;padding:18px!important}
+  [data-r=diag-text],[data-r=price-text]{margin-left:20px!important;margin-right:20px!important}
+  [data-r=diag-mock],[data-r=price-mock],[data-r=chan-img]{margin-left:20px!important;margin-right:20px!important}
+  [data-r=conv-row]{padding:0 20px!important;gap:36px!important}
+  [data-r=how-head],[data-r=how-note]{padding:0 20px!important}
+  [data-r=how-canvas]{margin:28px 20px 0!important;grid-template-columns:1fr}
+  [data-r=how-card]{min-height:0}
+  [data-r=chan-panel]{margin:0 20px}
+  [data-r=chan-img]{height:420px!important}
+  [data-r=chan-img] img{object-position:50% 22%}
+  [data-r=pricing-wrap]{padding:0 20px!important}
+  [data-r=cta]{padding:0 20px!important}
+  [data-r=cta-text] h2{font-size:34px!important}
+  [data-r=cta-btns]>a{width:100%}
+  [data-r=foot-grid]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding:40px 20px 0!important}
+  [data-r=foot-rule]{margin:32px 20px 0!important}
+  [data-r=foot-bar]{padding:18px 20px 28px!important}
+  [data-r=diag-text] h2,[data-r=price-text] h2,[data-r=conv-text] h2,[data-r=chan-panel] h2,[data-r=pricing-h2],[data-r=how-head] h2{font-size:34px!important}
+}

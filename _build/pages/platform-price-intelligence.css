@@ -1,0 +1,13 @@
+/* Hero: the product card is pinned bottom-right over the hero art at desktop; once the hero reflows it sits under the copy */
+@media (max-width:1151px){
+  [data-x=sec]:has(>[data-g][style*="width:690px"]){flex-direction:column;align-items:stretch!important;justify-content:center}
+  [data-x=sec]:has(>[data-g][style*="width:690px"])>[style*="z-index:2"]{padding-bottom:36px!important}
+  [data-x=sec]>[data-g][style*="width:690px"]{position:relative!important;right:auto!important;bottom:auto!important;width:auto!important;margin-bottom:48px}
+}
+/* Price track: below 768px the six competitor labels collide with "Your price" — keep the range ends ($98, $158) */
+@media (max-width:767px){
+  [style*="position:absolute"][style*="top:94px"][style*="translateX(-50%)"]:not([style*="left:0%"]):not([style*="left:100%"]){display:none}
+  [style*="position:absolute"][style*="left:85.71%"][style*="top:98px"]{top:116px!important}
+  /* stats row: the column separators read as stray indents once the three stats stack */
+  [data-g]>[style*="border-left"]{border-left:0!important;padding-left:0!important}
+}

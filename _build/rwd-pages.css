@@ -1,0 +1,113 @@
+/* Sub-page responsive layer — inlined into every sub-page by _build/responsive.mjs, which also sets the hooks:
+   [data-x=…] chrome (header/menu/footer/CTA) and layout roles from the export, [data-g=…] grids classified by track
+   shape, [data-fit=W] fixed-width mockups that zoom to fit (rwd.js), [data-x=mascot] absolutely-positioned mascots,
+   [data-m~=…] mobile roles (copy · tap · tapr · frow · thead · tscroll · trow). Inline styles need !important.
+   Ranges: ≥1440 design as-is · 1152–1439 whole page zooms (--z) · 768–1151 tablet reflow · ≤767 phone. */
+:root{--z:1}
+[data-x=burger],[data-x=menu]{display:none}
+@media (min-width:1152px) and (max-width:1439px){body{min-width:0!important;zoom:var(--z)}}
+@media (max-width:1439px){:root{--z:.96}}
+@media (max-width:1366px){:root{--z:.92}}
+@media (max-width:1300px){:root{--z:.88}}
+@media (max-width:1240px){:root{--z:.84}}
+@media (max-width:1200px){:root{--z:.8}}
+@media (min-width:1152px){[data-x=menu]{display:none!important}}
+
+@media (max-width:1151px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html,body{overflow-x:clip}
+  body{min-width:0!important}
+  [data-x=sec],[data-x=band]{padding-left:40px!important;padding-right:40px!important}
+  [data-x=rule]{margin-left:40px!important;margin-right:40px!important}
+  [data-x=hdr]{grid-template-columns:auto 1fr auto!important;padding:0 24px!important}
+  [data-x=nav],[data-x=signin]{display:none!important}
+  [data-x=burger]{display:inline-flex!important}
+  [data-x=hdr-right]{gap:12px!important}
+  [data-x=menu][data-open]{display:flex}
+  [data-g="2L"],[data-g="3L"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="3L"][data-gc]>:nth-child(2){display:none!important}
+  [data-g="2L"]>*{min-height:0!important}
+  [data-g="4"],[data-g=conn]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [data-g=conn]>:nth-child(even){display:none!important}
+  [data-g="3"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  [data-x=mascot]{display:none!important}
+  [data-fit]{zoom:.75;margin-left:auto!important;margin-right:auto!important}
+  [data-x=cta]{padding:0 40px!important;min-height:0!important;background-position:right bottom!important;background-size:auto 400px!important}
+  [data-x=cta-text]{width:100%!important;min-width:0;max-width:560px;padding:64px 0 56px!important}
+  [data-x=cta-btns]{flex-wrap:wrap}
+  [data-x=foot-grid]{grid-template-columns:repeat(4,1fr)!important;padding:44px 40px 0!important}
+  [data-x=foot-brand]{grid-column:1/-1}
+  [data-x=foot-rule]{margin:36px 40px 0!important}
+  [data-x=foot-bar]{padding:20px 40px 28px!important;flex-wrap:wrap;gap:10px}
+  [data-x=foot-compact]{padding-left:40px!important;padding-right:40px!important}
+  h1{font-size:46px!important}
+  [data-x=h2]{font-size:38px!important}
+  /* rows that only fit side by side at desktop width wrap instead of squeezing one column to a sliver */
+  [data-m~=frow]{flex-wrap:wrap!important;row-gap:18px!important}
+  [data-m~=frow]>*{min-width:0}
+  [data-m~=frow]>[style*="flex:none"]{flex:0 1 auto!important}
+  [data-x=btnrow]{flex-wrap:wrap}
+  [data-x=facts]{flex-wrap:wrap;row-gap:12px!important}
+  [data-x=facts]>:not([aria-hidden]){flex:0 1 auto!important;min-width:0!important;white-space:normal!important;overflow-wrap:break-word}
+  [data-x=sec] code,[data-x=sec] [style*="Geist Mono"]{overflow-wrap:anywhere}
+  /* table header rows are meaningless once their rows reflow */
+  [data-m~=thead]:has(+[data-g="4"]),[data-m~=thead]:has(+[data-g="2L"]),[data-m~=thead]:has(+[data-g="3L"]){display:none!important}
+  /* touch: body copy at 16px, form fields at 16px (smaller makes iOS Safari zoom the page on focus), 44px targets */
+  [data-m~=copy]{font-size:16px!important}
+  input:not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px!important}
+  [data-m~=tap]:not([style*="position:absolute"]),[data-x=hdr]>a:first-child,[data-x=hdr-right]>a,[data-x=foot-bar] a,[data-x=foot-compact] a{position:relative}
+  [data-m~=tap]::after,[data-x=hdr]>a:first-child::after,[data-x=hdr-right]>a::after,[data-x=foot-bar] a::after,[data-x=foot-compact] a::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  [data-m~=tapr]{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}
+  ul:has(>li [data-m~=tap]){gap:0!important}
+  ul:has(>li [data-m~=tap])>li{min-height:46px;align-items:center!important;position:relative}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]{position:static!important}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]::after{left:0;top:0;width:100%;height:100%;transform:none}
+  [data-g]:has(>[data-m~=tap]){min-height:46px;box-sizing:border-box}
+  [data-x=btnrow]>a,[data-x=btnrow]>button{min-height:44px}
+  [data-x=btnrow]>button{height:auto!important}
+  [data-x=btnrow]>a:not([style*="display:inline-flex"]):not([style*="display:flex"]){display:inline-flex;align-items:center}
+  [data-x=btnrow]>a[style*="border-bottom"]{align-items:flex-end!important}
+  [data-x=foot-grid] ul{gap:0!important}
+  [data-x=foot-grid] h2{margin-bottom:6px!important}
+  [data-x=foot-grid] li>a{display:flex;align-items:center;min-height:44px}
+}
+@media (max-width:1023px){
+  [data-g="2M"],[data-g="2"]:has([data-g]){grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="2M"]>*{min-height:0!important}
+  [data-m~=thead]:has(+[data-g="2M"]){display:none!important}
+}
+@media (max-width:899px){
+  [data-g="3"]{grid-template-columns:minmax(0,1fr)!important}
+  [data-g="3"][data-gc]>:nth-child(2){display:none!important}
+  [data-m~=thead]:has(+[data-g="3"]){display:none!important}
+  [data-x=cta]{background-size:auto 280px!important;background-position:right -60px bottom!important}
+  [data-x=cta-text]{max-width:none;padding:56px 0 250px!important}
+}
+@media (max-width:767px){
+  [data-fit]{zoom:.42}
+  [data-x=sec],[data-x=band]{padding-left:20px!important;padding-right:20px!important}
+  [data-x=rule]{margin-left:20px!important;margin-right:20px!important}
+  [data-x=hdr]{height:64px!important;padding:0 16px!important}
+  [data-x=hdr] img{height:32px!important}
+  [data-x=hdr-right] a{padding:9px 14px!important}
+  [data-g]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important}
+  [data-g=ico3]{grid-template-columns:auto minmax(0,1fr)!important}
+  [data-g="2s"]{grid-template-columns:auto minmax(0,1fr)!important}
+  [data-x=thead],[data-m~=thead]{display:none!important}
+  [data-g=ico3]>:nth-child(3){grid-column:2}
+  [data-x=cta]{padding:0 20px!important}
+  [data-x=cta] h2{font-size:34px!important}
+  [data-x=cta-btns]>a{width:100%}
+  /* wide data tables keep their columns and scroll sideways inside their own card */
+  [data-m~=tscroll]{overflow-x:auto!important;overscroll-behavior-x:contain}
+  [data-m~=trow]{min-width:640px}
+  form{padding-left:20px!important;padding-right:20px!important}
+  [data-x=foot-grid]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding:40px 20px 0!important}
+  [data-x=foot-rule]{margin:32px 20px 0!important}
+  [data-x=foot-bar]{padding:18px 20px 28px!important}
+  [data-x=foot-compact]{padding-left:20px!important;padding-right:20px!important;flex-wrap:wrap}
+  h1{font-size:34px!important;line-height:1.08!important}
+  [data-x=h2]{font-size:30px!important}
+  [data-x=lede]:not([style*="font-weight:7"]):not([style*="font-weight:8"]){font-size:16.5px!important}
+  [data-x=lede][style*="font-weight:8"]{font-size:24px!important}
+}

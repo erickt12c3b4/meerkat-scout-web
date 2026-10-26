@@ -1,0 +1,2 @@
+@media (max-width:1151px){body>section:first-of-type img[src*="scout-clipboard"]{height:320px!important;margin:24px 0 0 -10px!important}}
+@media (max-width:767px){[aria-label="Monthly orders"] [data-g]{grid-template-columns:repeat(2,minmax(0,1fr))!important}}

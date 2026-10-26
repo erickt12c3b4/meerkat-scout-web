@@ -32,9 +32,10 @@
 <style>body{margin:0;min-width:1440px;background:#F7F4EF;color:#171514;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#A0431A;text-decoration:none;transition:filter .15s ease}a:hover{filter:brightness(.94)}html{scroll-behavior:smooth}</style>
 <style>button{font:inherit;cursor:pointer;transition:filter .15s ease}button:hover{filter:brightness(.94)}:focus-visible{outline:2px solid #C2571E;outline-offset:2px}</style>
 <style id="ms-responsive">
-/* Sub-page responsive layer — inlined by build/build-pages.js, which sets the hooks:
-   [data-x=…] chrome (header/menu/footer/CTA), [data-g=…] grids classified by track shape, [data-fit=W] fixed-width
-   mockups that zoom to fit (rwd.js), [data-x=mascot] absolutely-positioned mascots. Inline styles need !important.
+/* Sub-page responsive layer — inlined into every sub-page by _build/responsive.mjs, which also sets the hooks:
+   [data-x=…] chrome (header/menu/footer/CTA) and layout roles from the export, [data-g=…] grids classified by track
+   shape, [data-fit=W] fixed-width mockups that zoom to fit (rwd.js), [data-x=mascot] absolutely-positioned mascots,
+   [data-m~=…] mobile roles (copy · tap · tapr · frow · thead · tscroll · trow). Inline styles need !important.
    Ranges: ≥1440 design as-is · 1152–1439 whole page zooms (--z) · 768–1151 tablet reflow · ≤767 phone. */
 :root{--z:1}
 [data-x=burger],[data-x=menu]{display:none}
@@ -47,6 +48,7 @@
 @media (min-width:1152px){[data-x=menu]{display:none!important}}
 
 @media (max-width:1151px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   html,body{overflow-x:clip}
   body{min-width:0!important}
   [data-x=sec],[data-x=band]{padding-left:40px!important;padding-right:40px!important}
@@ -74,14 +76,44 @@
   [data-x=foot-compact]{padding-left:40px!important;padding-right:40px!important}
   h1{font-size:46px!important}
   [data-x=h2]{font-size:38px!important}
+  /* rows that only fit side by side at desktop width wrap instead of squeezing one column to a sliver */
+  [data-m~=frow]{flex-wrap:wrap!important;row-gap:18px!important}
+  [data-m~=frow]>*{min-width:0}
+  [data-m~=frow]>[style*="flex:none"]{flex:0 1 auto!important}
+  [data-x=btnrow]{flex-wrap:wrap}
+  [data-x=facts]{flex-wrap:wrap;row-gap:12px!important}
+  [data-x=facts]>:not([aria-hidden]){flex:0 1 auto!important;min-width:0!important;white-space:normal!important;overflow-wrap:break-word}
+  [data-x=sec] code,[data-x=sec] [style*="Geist Mono"]{overflow-wrap:anywhere}
+  /* table header rows are meaningless once their rows reflow */
+  [data-m~=thead]:has(+[data-g="4"]),[data-m~=thead]:has(+[data-g="2L"]),[data-m~=thead]:has(+[data-g="3L"]){display:none!important}
+  /* touch: body copy at 16px, form fields at 16px (smaller makes iOS Safari zoom the page on focus), 44px targets */
+  [data-m~=copy]{font-size:16px!important}
+  input:not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px!important}
+  [data-m~=tap]:not([style*="position:absolute"]),[data-x=hdr]>a:first-child,[data-x=hdr-right]>a,[data-x=foot-bar] a,[data-x=foot-compact] a{position:relative}
+  [data-m~=tap]::after,[data-x=hdr]>a:first-child::after,[data-x=hdr-right]>a::after,[data-x=foot-bar] a::after,[data-x=foot-compact] a::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  [data-m~=tapr]{display:flex!important;align-items:center;min-height:44px;box-sizing:border-box}
+  ul:has(>li [data-m~=tap]){gap:0!important}
+  ul:has(>li [data-m~=tap])>li{min-height:46px;align-items:center!important;position:relative}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]{position:static!important}
+  ul:has(>li [data-m~=tap])>li [data-m~=tap]::after{left:0;top:0;width:100%;height:100%;transform:none}
+  [data-g]:has(>[data-m~=tap]){min-height:46px;box-sizing:border-box}
+  [data-x=btnrow]>a,[data-x=btnrow]>button{min-height:44px}
+  [data-x=btnrow]>button{height:auto!important}
+  [data-x=btnrow]>a:not([style*="display:inline-flex"]):not([style*="display:flex"]){display:inline-flex;align-items:center}
+  [data-x=btnrow]>a[style*="border-bottom"]{align-items:flex-end!important}
+  [data-x=foot-grid] ul{gap:0!important}
+  [data-x=foot-grid] h2{margin-bottom:6px!important}
+  [data-x=foot-grid] li>a{display:flex;align-items:center;min-height:44px}
 }
 @media (max-width:1023px){
-  [data-g="2M"]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
+  [data-g="2M"],[data-g="2"]:has([data-g]){grid-template-columns:minmax(0,1fr)!important;align-content:start!important;min-height:0!important}
   [data-g="2M"]>*{min-height:0!important}
+  [data-m~=thead]:has(+[data-g="2M"]){display:none!important}
 }
 @media (max-width:899px){
   [data-g="3"]{grid-template-columns:minmax(0,1fr)!important}
   [data-g="3"][data-gc]>:nth-child(2){display:none!important}
+  [data-m~=thead]:has(+[data-g="3"]){display:none!important}
   [data-x=cta]{background-size:auto 280px!important;background-position:right -60px bottom!important}
   [data-x=cta-text]{max-width:none;padding:56px 0 250px!important}
 }
@@ -94,14 +126,15 @@
   [data-x=hdr-right] a{padding:9px 14px!important}
   [data-g]{grid-template-columns:minmax(0,1fr)!important;align-content:start!important}
   [data-g=ico3]{grid-template-columns:auto minmax(0,1fr)!important}
-  [data-x=thead]{display:none!important}
+  [data-g="2s"]{grid-template-columns:auto minmax(0,1fr)!important}
+  [data-x=thead],[data-m~=thead]{display:none!important}
   [data-g=ico3]>:nth-child(3){grid-column:2}
   [data-x=cta]{padding:0 20px!important}
   [data-x=cta] h2{font-size:34px!important}
   [data-x=cta-btns]>a{width:100%}
-  [data-x=btnrow]{flex-wrap:wrap}
-  [data-x=facts]{flex-wrap:wrap;row-gap:12px}
-  [data-x=facts]>*{flex:1 1 140px;min-width:0}
+  /* wide data tables keep their columns and scroll sideways inside their own card */
+  [data-m~=tscroll]{overflow-x:auto!important;overscroll-behavior-x:contain}
+  [data-m~=trow]{min-width:640px}
   form{padding-left:20px!important;padding-right:20px!important}
   [data-x=foot-grid]{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;padding:40px 20px 0!important}
   [data-x=foot-rule]{margin:32px 20px 0!important}
@@ -109,7 +142,8 @@
   [data-x=foot-compact]{padding-left:20px!important;padding-right:20px!important;flex-wrap:wrap}
   h1{font-size:34px!important;line-height:1.08!important}
   [data-x=h2]{font-size:30px!important}
-  [data-x=lede]{font-size:16.5px!important}
+  [data-x=lede]:not([style*="font-weight:7"]):not([style*="font-weight:8"]){font-size:16.5px!important}
+  [data-x=lede][style*="font-weight:8"]{font-size:24px!important}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://meerkatscout.com/legal/cookies/#webpage","url":"https://meerkatscout.com/legal/cookies/","name":"Cookie Preferences — Meerkat Scout","description":"Which cookies Meerkat Scout sets, what they do and how to manage them.","isPartOf":{"@id":"https://meerkatscout.com/#website"},"about":{"@id":"https://meerkatscout.com/#org"},"primaryImageOfPage":"https://meerkatscout.com/assets/og/home.jpg","breadcrumb":{"@id":"https://meerkatscout.com/legal/cookies/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://meerkatscout.com/legal/cookies/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://meerkatscout.com/"},{"@type":"ListItem","position":2,"name":"Cookie Preferences","item":"https://meerkatscout.com/legal/cookies/"}]}]}</script>
@@ -121,7 +155,7 @@
   <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">Legal · Cookie preferences</p>
   <h1 style="margin:0;font-size:57px;line-height:1.08;font-weight:800;letter-spacing:-.035em;max-width:760px;text-wrap:pretty">Only the cookies that keep you signed in. Nothing that follows you.</h1>
   <p style="margin:28px 0 0;font-size:17.5px;line-height:1.55;color:#52525B;max-width:640px;text-wrap:pretty">Scout uses strictly necessary cookies and nothing else. There is no advertising, no cross-site tracking, and no analytics — so there is no consent banner and nothing here to opt out of. This page shows exactly what is set, and where.</p>
-  <div style="display:flex;gap:36px;margin-top:36px;font-size:14px;color:#6B655E" data-x="facts">
+  <div style="display:flex;gap:36px;margin-top:36px;font-size:14px;color:#6B655E" data-x="facts" data-m="copy">
     <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Effective</span><span style="color:#171514;font-weight:500">September 2, 2026</span></div>
     <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Advertising cookies</span><span style="color:#171514;font-weight:500">None</span></div>
     <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F">Analytics cookies</span><span style="color:#171514;font-weight:500">None</span></div>
@@ -129,21 +163,21 @@
   </div>
 </section>
 
-<section style="background:#F7F4EF;padding:64px 70px 40px;display:grid;grid-template-columns:260px minmax(0,780px);gap:96px;align-items:start" data-x="sec" data-g="4">
+<section style="background:#F7F4EF;padding:64px 70px 40px;display:grid;grid-template-columns:260px minmax(0,780px);gap:96px;align-items:start" data-x="sec" data-g="2M">
   <nav aria-label="On this page" style="position:sticky;top:104px;display:flex;flex-direction:column;gap:2px">
     <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A857F">On this page</p>
-    <a href="#preferences" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">1 &nbsp;Your preferences</a>
-    <a href="#profiles" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">2 &nbsp;Two places, two profiles</a>
-    <a href="#app" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">3 &nbsp;Cookies in the app</a>
-    <a href="#site" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">4 &nbsp;Cookies on this website</a>
-    <a href="#third" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">5 &nbsp;Third-party cookies</a>
-    <a href="#browser" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9">6 &nbsp;Blocking cookies in your browser</a>
-    <a href="#future" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9;border-bottom:1px solid #E7E1D9">7 &nbsp;If this changes</a>
+    <a href="#preferences" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">1 &nbsp;Your preferences</a>
+    <a href="#profiles" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">2 &nbsp;Two places, two profiles</a>
+    <a href="#app" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">3 &nbsp;Cookies in the app</a>
+    <a href="#site" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">4 &nbsp;Cookies on this website</a>
+    <a href="#third" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">5 &nbsp;Third-party cookies</a>
+    <a href="#browser" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9" data-m="tapr">6 &nbsp;Blocking cookies in your browser</a>
+    <a href="#future" style="font-size:14.5px;line-height:1.4;color:#3F3F46;padding:7px 0;border-top:1px solid #E7E1D9;border-bottom:1px solid #E7E1D9" data-m="tapr">7 &nbsp;If this changes</a>
     <div style="margin-top:28px;display:flex;flex-direction:column;gap:8px">
       <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A857F">Related</p>
-      <a href="../../legal/privacy/" style="font-size:14.5px;color:#A0431A">Privacy Policy →</a>
-      <a href="../../legal/terms/" style="font-size:14.5px;color:#A0431A">Terms of Service →</a>
-      <a href="../../legal/gdpr/" style="font-size:14.5px;color:#A0431A">GDPR &amp; Data Rights →</a>
+      <a href="../../legal/privacy/" style="font-size:14.5px;color:#A0431A" data-m="tapr">Privacy Policy →</a>
+      <a href="../../legal/terms/" style="font-size:14.5px;color:#A0431A" data-m="tapr">Terms of Service →</a>
+      <a href="../../legal/gdpr/" style="font-size:14.5px;color:#A0431A" data-m="tapr">GDPR &amp; Data Rights →</a>
     </div>
   </nav>
 
@@ -154,16 +188,16 @@
       <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Your preferences</h2>
       <p style="margin:0 0 22px;font-size:16.5px;line-height:1.65;color:#3F3F46">There is currently one category of cookie, and it cannot be turned off because the app does not work without it. Optional categories will appear here as switches if we ever add them.</p>
       <div style="background:#fff;border:1px solid #EDE9E4;border-radius:10px;overflow:hidden">
-        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;border-bottom:1px solid #EDE9E4" data-g="4">
-          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Strictly necessary</strong><span style="font-size:15px;line-height:1.5;color:#52525B">Keeps you signed in to the app inside Shopify and protects forms against forgery. Sets nothing that identifies you across other sites.</span></div>
+        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;border-bottom:1px solid #EDE9E4" data-g="2">
+          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Strictly necessary</strong><span style="font-size:15px;line-height:1.5;color:#52525B" data-m="copy">Keeps you signed in to the app inside Shopify and protects forms against forgery. Sets nothing that identifies you across other sites.</span></div>
           <span style="justify-self:end;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#1F7A4C;background:#F1FAF5;border:1px solid #CDE9D9;border-radius:999px;padding:6px 12px"><span style="width:7px;height:7px;border-radius:50%;background:#1F7A4C"></span>Always on</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;border-bottom:1px solid #EDE9E4;opacity:.55" data-g="4">
-          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Analytics</strong><span style="font-size:15px;line-height:1.5;color:#52525B">Not used. Scout sets no analytics cookies in the app or on this website.</span></div>
+        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;border-bottom:1px solid #EDE9E4;opacity:.55" data-g="2">
+          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Analytics</strong><span style="font-size:15px;line-height:1.5;color:#52525B" data-m="copy">Not used. Scout sets no analytics cookies in the app or on this website.</span></div>
           <span style="justify-self:end;font-size:13px;font-weight:600;color:#8A857F;border:1px solid #E7E1D9;border-radius:999px;padding:6px 12px">Not in use</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;opacity:.55" data-g="4">
-          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Advertising and tracking</strong><span style="font-size:15px;line-height:1.5;color:#52525B">Not used. No pixels, no retargeting, no cross-site identifiers.</span></div>
+        <div style="display:grid;grid-template-columns:1fr 140px;gap:20px;align-items:center;padding:20px 22px;opacity:.55" data-g="2">
+          <div style="display:flex;flex-direction:column;gap:5px"><strong style="font-size:16.5px;color:#171514;font-weight:600">Advertising and tracking</strong><span style="font-size:15px;line-height:1.5;color:#52525B" data-m="copy">Not used. No pixels, no retargeting, no cross-site identifiers.</span></div>
           <span style="justify-self:end;font-size:13px;font-weight:600;color:#8A857F;border:1px solid #E7E1D9;border-radius:999px;padding:6px 12px">Not in use</span>
         </div>
       </div>
@@ -173,9 +207,9 @@
       <p style="margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">02 · Context</p>
       <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Two places, two profiles</h2>
       <p style="margin:0 0 22px;font-size:16.5px;line-height:1.65;color:#3F3F46">Meerkat Scout exists in two places with different cookie needs.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px" data-g="4">
-        <div style="display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The embedded app</span><strong style="font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Runs inside your Shopify admin</strong><span style="font-size:15.5px;line-height:1.55;color:#52525B">Authentication is handled by Shopify's session tokens. Scout sets only what is needed to keep that session valid and to protect requests. Details in section 3.</span></div>
-        <div style="display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">This website</span><strong style="font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Public marketing pages</strong><span style="font-size:15.5px;line-height:1.55;color:#52525B">Static pages you can read without an account. Scout sets no cookies here. Details in section 4.</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px" data-g="2">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">The embedded app</span><strong style="font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Runs inside your Shopify admin</strong><span style="font-size:15.5px;line-height:1.55;color:#52525B" data-m="copy">Authentication is handled by Shopify's session tokens. Scout sets only what is needed to keep that session valid and to protect requests. Details in section 3.</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:22px 24px;background:#fff;border:1px solid #EDE9E4;border-radius:10px"><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A0431A">This website</span><strong style="font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25">Public marketing pages</strong><span style="font-size:15.5px;line-height:1.55;color:#52525B" data-m="copy">Static pages you can read without an account. Scout sets no cookies here. Details in section 4.</span></div>
       </div>
     </section>
 
@@ -184,9 +218,9 @@
       <h2 style="margin:0 0 20px;font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.025em">Cookies in the app</h2>
       <p style="margin:0 0 22px;font-size:16.5px;line-height:1.65;color:#3F3F46">All of these are strictly necessary. None contains catalog data, and none is readable by any site other than Scout.</p>
       <div style="background:#fff;border:1px solid #EDE9E4;border-radius:10px;overflow:hidden">
-        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:12px 22px;background:#FAF9F8;border-bottom:1px solid #EDE9E4;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F" data-g="4"><span>Cookie</span><span>Purpose</span><span>Lifetime</span></div>
-        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514"><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600;font-family:'Geist',sans-serif">[SESSION COOKIE NAME]</mark></code><span>Identifies your signed-in session with Scout after Shopify has authenticated you. Without it every request would require a new sign-in.</span><span><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600">[SESSION LIFETIME]</mark></span></div>
-        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:18px 22px;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="4"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514"><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600;font-family:'Geist',sans-serif">[CSRF COOKIE NAME]</mark></code><span>Holds a one-time token that proves a form submission or action came from you and not from another site.</span><span>Session</span></div>
+        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:12px 22px;background:#FAF9F8;border-bottom:1px solid #EDE9E4;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857F" data-g="3" data-m="thead"><span>Cookie</span><span>Purpose</span><span>Lifetime</span></div>
+        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:18px 22px;border-bottom:1px solid #EDE9E4;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="3" data-m="copy"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514"><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600;font-family:'Geist',sans-serif">[SESSION COOKIE NAME]</mark></code><span>Identifies your signed-in session with Scout after Shopify has authenticated you. Without it every request would require a new sign-in.</span><span><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600">[SESSION LIFETIME]</mark></span></div>
+        <div style="display:grid;grid-template-columns:220px 1fr 170px;gap:20px;padding:18px 22px;font-size:15.5px;line-height:1.55;color:#3F3F46" data-g="3" data-m="copy"><code style="font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;color:#171514"><mark style="background:#FFF6E8;color:#A0431A;border:1px dashed #E5813A;border-radius:4px;padding:1px 6px;font-weight:600;font-family:'Geist',sans-serif">[CSRF COOKIE NAME]</mark></code><span>Holds a one-time token that proves a form submission or action came from you and not from another site.</span><span>Session</span></div>
       </div>
       <p style="margin:22px 0 0;font-size:16.5px;line-height:1.65;color:#3F3F46">Because Scout is embedded in your Shopify admin, Shopify itself also sets cookies on its own domain to run the admin. Those belong to Shopify and are described in Shopify's cookie policy, not this one.</p>
     </section>
@@ -221,7 +255,7 @@
 </section>
 
 <section style="position:relative;background:#0A0A0A;padding:84px 70px 88px;overflow:hidden" data-x="sec">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center" data-g="4">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center" data-g="2">
     <div>
       <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#E2703A">Nothing to opt out of</p>
       <h2 style="margin:0;font-size:46px;line-height:1.06;font-weight:800;letter-spacing:-.035em;color:#fff;text-wrap:pretty" data-x="h2">No banner, because there's nothing to consent to.</h2>
@@ -229,14 +263,14 @@
     <div style="display:flex;flex-direction:column;gap:18px">
       <p style="margin:0;font-size:17px;line-height:1.6;color:#A8A29A">Scout watches your feeds, not you. The full account of what we collect and where it goes is in the Privacy Policy.</p>
       <div style="display:flex;gap:14px;align-items:center" data-x="btnrow">
-        <a href="../../legal/privacy/" style="font-size:14.5px;font-weight:600;color:#fff;background:#C2571E;border-radius:6px;padding:12px 22px">Read the Privacy Policy</a>
-        <a href="../../legal/gdpr/" style="font-size:14.5px;font-weight:600;color:#D2CCC5;border:1px solid #4a4540;border-radius:6px;padding:11px 22px">Your data rights</a>
+        <a href="../../legal/privacy/" style="font-size:14.5px;font-weight:600;color:#fff;background:#C2571E;border-radius:6px;padding:12px 22px" data-m="tap">Read the Privacy Policy</a>
+        <a href="../../legal/gdpr/" style="font-size:14.5px;font-weight:600;color:#D2CCC5;border:1px solid #4a4540;border-radius:6px;padding:11px 22px" data-m="tap">Your data rights</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer style="position:relative;z-index:1;background:linear-gradient(180deg,#121110,#0c0c0c);border-top:1px solid #4a4540;overflow:hidden"><svg width="1440" height="430" viewBox="0 0 1440 430" fill="none" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.2"><g stroke="#6a2f18" stroke-width="1" fill="none"><path d="M-40 390C160 342 310 426 520 380 730 334 910 412 1110 366 1280 328 1380 350 1500 324"></path><path d="M-40 410C160 362 310 446 520 400 730 354 910 432 1110 386 1280 348 1380 370 1500 344"></path><path d="M1300 -40C1370 48 1310 124 1370 210 1420 286 1370 344 1400 420"></path></g></svg><div style="position:relative;z-index:2;display:grid;grid-template-columns:300px repeat(4,1fr);gap:30px;padding:48px 70px 0" data-x="foot-grid"><div data-x="foot-brand"><img loading="lazy" decoding="async" src="../../assets/img-03-light.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;width:255px;height:63px;object-fit:contain"><p style="margin:18px 0 0;max-width:270px;font-size:15.5px;line-height:1.55;color:#A8A29A">Product-feed management and commerce intelligence for Shopify merchants.</p><p style="margin:18px 0 0;font-size:15.5px;color:#D2CCC5">One catalog. Every destination.</p></div><nav aria-label="Platform"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Platform</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../platform/feed-management/" style="font-size:14.5px;color:#A8A29A">Feed Management</a></li><li><a href="../../platform/diagnostics/" style="font-size:14.5px;color:#A8A29A">Diagnostics</a></li><li><a href="../../platform/rules-engine/" style="font-size:14.5px;color:#A8A29A">Rules Engine</a></li><li><a href="../../platform/price-intelligence/" style="font-size:14.5px;color:#A8A29A">Price Intelligence</a></li><li><a href="../../platform/conversion-intelligence/" style="font-size:14.5px;color:#A8A29A">Conversion Intelligence</a></li></ul></nav><nav aria-label="Channels"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Channels</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../channels/google-shopping/" style="font-size:14.5px;color:#A8A29A">Google Shopping</a></li><li><a href="../../channels/meta/" style="font-size:14.5px;color:#A8A29A">Meta</a></li><li><a href="../../channels/amazon/" style="font-size:14.5px;color:#A8A29A">Amazon</a></li><li><a href="../../channels/walmart/" style="font-size:14.5px;color:#A8A29A">Walmart</a></li><li><a href="../../channels/" style="font-size:14.5px;color:#A8A29A">View all channels</a></li></ul></nav><nav aria-label="Resources"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Resources</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../help/#first-sync" style="font-size:14.5px;color:#A8A29A">Documentation</a></li><li><a href="../../help/" style="font-size:14.5px;color:#A8A29A">Help Center</a></li><li><a href="../../contact/" style="font-size:14.5px;color:#A8A29A">Contact</a></li><li><a href="../../security/" style="font-size:14.5px;color:#A8A29A">Security &amp; Trust</a></li></ul></nav><nav aria-label="Legal"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Legal</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../legal/privacy/" style="font-size:14.5px;color:#A8A29A">Privacy Policy</a></li><li><a href="../../legal/terms/" style="font-size:14.5px;color:#A8A29A">Terms of Service</a></li><li><a href="../../legal/gdpr/" style="font-size:14.5px;color:#A8A29A">GDPR &amp; Data Rights</a></li><li><a href="../../legal/cookies/" style="font-size:14.5px;color:#FAF8F4">Cookie Preferences</a></li></ul></nav></div><div style="position:relative;z-index:2;margin:40px 70px 0;height:1px;background:#332e2a" data-x="foot-rule"></div><div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 70px 30px" data-x="foot-bar"><p style="margin:0;font-size:14px;color:#8A857F">© 2026 Meerkat Scout. All rights reserved.</p><div style="display:flex;align-items:center;gap:20px;font-size:14px"><a href="../../legal/privacy/" style="color:#A8A29A">Privacy</a><span style="color:#5c5650">•</span><a href="../../legal/terms/" style="color:#A8A29A">Terms</a><span style="color:#5c5650">•</span><a href="../../contact/" style="color:#A8A29A">Contact</a><span style="color:#5c5650">•</span><span style="display:inline-flex;align-items:center;gap:8px;color:#A8A29A"><span aria-hidden="true">◎</span>English</span></div></div></footer>
+<footer style="position:relative;z-index:1;background:linear-gradient(180deg,#121110,#0c0c0c);border-top:1px solid #4a4540;overflow:hidden"><svg width="1440" height="430" viewBox="0 0 1440 430" fill="none" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.2"><g stroke="#6a2f18" stroke-width="1" fill="none"><path d="M-40 390C160 342 310 426 520 380 730 334 910 412 1110 366 1280 328 1380 350 1500 324"></path><path d="M-40 410C160 362 310 446 520 400 730 354 910 432 1110 386 1280 348 1380 370 1500 344"></path><path d="M1300 -40C1370 48 1310 124 1370 210 1420 286 1370 344 1400 420"></path></g></svg><div style="position:relative;z-index:2;display:grid;grid-template-columns:300px repeat(4,1fr);gap:30px;padding:48px 70px 0" data-x="foot-grid"><div data-x="foot-brand"><img loading="lazy" decoding="async" src="../../assets/img-03-light.png" width="1510" height="370" alt="Meerkat Scout" style="display:block;width:255px;height:63px;object-fit:contain"><p style="margin:18px 0 0;max-width:270px;font-size:15.5px;line-height:1.55;color:#A8A29A" data-m="copy">Product-feed management and commerce intelligence for Shopify merchants.</p><p style="margin:18px 0 0;font-size:15.5px;color:#D2CCC5" data-m="copy">One catalog. Every destination.</p></div><nav aria-label="Platform"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Platform</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../platform/feed-management/" style="font-size:14.5px;color:#A8A29A">Feed Management</a></li><li><a href="../../platform/diagnostics/" style="font-size:14.5px;color:#A8A29A">Diagnostics</a></li><li><a href="../../platform/rules-engine/" style="font-size:14.5px;color:#A8A29A">Rules Engine</a></li><li><a href="../../platform/price-intelligence/" style="font-size:14.5px;color:#A8A29A">Price Intelligence</a></li><li><a href="../../platform/conversion-intelligence/" style="font-size:14.5px;color:#A8A29A">Conversion Intelligence</a></li></ul></nav><nav aria-label="Channels"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Channels</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../channels/google-shopping/" style="font-size:14.5px;color:#A8A29A">Google Shopping</a></li><li><a href="../../channels/meta/" style="font-size:14.5px;color:#A8A29A">Meta</a></li><li><a href="../../channels/amazon/" style="font-size:14.5px;color:#A8A29A">Amazon</a></li><li><a href="../../channels/walmart/" style="font-size:14.5px;color:#A8A29A">Walmart</a></li><li><a href="../../channels/" style="font-size:14.5px;color:#A8A29A">View all channels</a></li></ul></nav><nav aria-label="Resources"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Resources</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../help/#first-sync" style="font-size:14.5px;color:#A8A29A">Documentation</a></li><li><a href="../../help/" style="font-size:14.5px;color:#A8A29A">Help Center</a></li><li><a href="../../contact/" style="font-size:14.5px;color:#A8A29A">Contact</a></li><li><a href="../../security/" style="font-size:14.5px;color:#A8A29A">Security &amp; Trust</a></li></ul></nav><nav aria-label="Legal"><h2 style="margin:8px 0 18px;font-size:15px;font-weight:700;color:#FAF8F4">Legal</h2><ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:13px"><li><a href="../../legal/privacy/" style="font-size:14.5px;color:#A8A29A">Privacy Policy</a></li><li><a href="../../legal/terms/" style="font-size:14.5px;color:#A8A29A">Terms of Service</a></li><li><a href="../../legal/gdpr/" style="font-size:14.5px;color:#A8A29A">GDPR &amp; Data Rights</a></li><li><a href="../../legal/cookies/" style="font-size:14.5px;color:#FAF8F4">Cookie Preferences</a></li></ul></nav></div><div style="position:relative;z-index:2;margin:40px 70px 0;height:1px;background:#332e2a" data-x="foot-rule"></div><div style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:22px 70px 30px" data-x="foot-bar"><p style="margin:0;font-size:14px;color:#8A857F" data-m="copy">© 2026 Meerkat Scout. All rights reserved.</p><div style="display:flex;align-items:center;gap:20px;font-size:14px"><a href="../../legal/privacy/" style="color:#A8A29A">Privacy</a><span style="color:#5c5650">•</span><a href="../../legal/terms/" style="color:#A8A29A">Terms</a><span style="color:#5c5650">•</span><a href="../../contact/" style="color:#A8A29A">Contact</a><span style="color:#5c5650">•</span><span style="display:inline-flex;align-items:center;gap:8px;color:#A8A29A"><span aria-hidden="true">◎</span>English</span></div></div></footer>
 <script>
 // Shared responsive runtime (homepage + sub-pages) — inlined by the build scripts. Two jobs: (1) set --z so
 // 1152–1439px viewports zoom the whole 1440px design to fit, and zoom each [data-fit=W] mockup to the width

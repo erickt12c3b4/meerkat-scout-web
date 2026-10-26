@@ -1,0 +1,5 @@
+/* Rule stack: the "From an accepted recommendation" tab hangs off card 4's top edge; on a phone-width card it wraps to
+   two lines over the rule, so it sits inside the card above the rule instead */
+@media (max-width:767px){
+  [style*="position:absolute"][style*="top:-11px"][style*="text-transform:uppercase"]{position:static!important;order:-1;grid-column:1/-1;justify-self:start}
+}

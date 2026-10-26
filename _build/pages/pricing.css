@@ -1,0 +1,6 @@
+/* Plan cards: the Growth/Scale feature lists carry links, which get 44px rows on touch screens (rwd-pages.css); give
+   every plan's list the same rhythm so stacked or side-by-side cards still line up */
+@media (max-width:1151px){
+  [data-r=card] ul{gap:0!important}
+  [data-r=card] ul>li{min-height:46px;align-items:center!important}
+}
