@@ -29,6 +29,10 @@ node _build/responsive.mjs --check  # CI-style check: exit 1 if any page doesn't
 | `rwd.js` / `rwd-home.js` | Responsive runtime: zoom-to-fit for fixed-width mockups (`[data-fit]`), the 1152–1439px zoom, the mobile menu toggle. |
 | `qa/audit.mjs` | The QA run: WebKit, iPhone 12 / iPhone SE / Galaxy S8 / iPad / 1440 desktop, full-page screenshots and measurements. |
 
+`responsive.mjs` only rewrites `index.html` files; it never touches `robots.txt` or `sitemap.xml` at the root. Those
+are hand-maintained: `sitemap.xml` lists every page by its `<link rel="canonical">` URL, so add new pages to it and
+bump `<lastmod>` when content changes.
+
 Ranges: ≥1440 the design as drawn · 1152–1439 the whole page zooms to fit · 768–1151 tablet reflow · ≤767 phone.
 
 **If the design is ever re-exported** from the design workspace, the export overwrites every page, including the

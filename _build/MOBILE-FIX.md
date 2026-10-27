@@ -147,8 +147,8 @@ Then three small page files (`_build/pages/platform-price-intelligence.css`, `pl
   extra scroll hint. The cut-off columns at the card edge are the cue.
 - **Tested in WebKit, not on a real iPhone.** Playwright's WebKit is Safari's engine, but not iOS Safari's shell (no
   collapsing address bar, no shrink-to-fit zoom). A quick look on the iPhone 12 is still worth doing.
-- **This file is publicly reachable** at meerkatscout.com/MOBILE-FIX.md: Pages serves Markdown without front matter
-  as a plain file. The repo is public anyway; `_build/` is not served (Jekyll skips `_` folders).
+- **This file was first published at the site root** (meerkatscout.com/MOBILE-FIX.md). It now lives in `_build/`,
+  which Pages doesn't serve (Jekyll skips `_` folders) and `robots.txt` disallows. The repo itself is public.
 - **The design workspace's `build-pages.js` still has the grid-classifier bug.** I can't edit it from here. A
   re-export overwrites every page; re-run `node _build/responsive.mjs` afterwards (`_build/README.md`).
 
